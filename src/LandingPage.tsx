@@ -29,22 +29,98 @@ const HowItWorks = () => (
   <section id="how-it-works" className="py-24 bg-white/[0.02]">
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">OpenClaw Install Deployment Process</h2>
-        <p className="text-white/50">From zero to a fully autonomous private AI workforce in 4 steps.</p>
+        <h2 className="text-4xl font-bold mb-4">The A-Z Deployment Roadmap</h2>
+        <p className="text-white/50">From initial discovery to a fully autonomous private AI workforce.</p>
       </div>
-      <div className="grid md:grid-cols-4 gap-8">
+      
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
-          { step: "01", title: "Hardware Audit", text: "We analyze your current infrastructure or recommend the perfect local server build." },
-          { step: "02", title: "Core Installation", text: "We deploy OpenClaw and Ollama, optimized for your specific GPU/CPU architecture." },
-          { step: "03", title: "Blueprint Tuning", text: "We configure industry-specific workflows and browser automation scripts." },
-          { step: "04", title: "Operator Training", text: "A 1-on-1 session to teach you how to command your new AI employee." },
-        ].map((item, i) => (
-          <div key={i} className="relative p-8 glass rounded-2xl">
-            <div className="text-5xl font-serif italic text-brand-primary/20 absolute top-4 right-6">{item.step}</div>
-            <h3 className="text-xl font-bold mb-4 mt-4">{item.title}</h3>
-            <p className="text-sm text-white/50 leading-relaxed">{item.text}</p>
+          { 
+            step: "A-C", 
+            title: "Discovery & Design", 
+            items: ["Requirement Gathering", "Infrastructure Audit", "Custom Blueprint Design"],
+            icon: Users
+          },
+          { 
+            step: "D-F", 
+            title: "Core Infrastructure", 
+            items: ["Hardware Procurement", "OS Optimization (CUDA/Metal)", "Core Software Installation"],
+            icon: Server
+          },
+          { 
+            step: "G-I", 
+            title: "Model & Tooling", 
+            items: ["Model Selection (Llama 3.1)", "Browser Operator Config", "Tool & CRM Integration"],
+            icon: Cpu
+          },
+          { 
+            step: "J-L", 
+            title: "Security & Scripting", 
+            items: ["Security Hardening", "Workflow Automation Scripting", "Edge Case Testing"],
+            icon: Shield
+          },
+          { 
+            step: "M-O", 
+            title: "Onboarding & Training", 
+            items: ["Human-in-the-Loop Setup", "Performance Benchmarking", "Staff 1-on-1 Training"],
+            icon: MousePointer2
+          },
+          { 
+            step: "P-Z", 
+            title: "Deployment & Scale", 
+            items: ["Live Deployment", "24/7 Monitoring", "Multi-Operator Scaling"],
+            icon: Zap
+          }
+        ].map((phase, i) => (
+          <div key={i} className="glass p-8 rounded-2xl border border-white/5 hover:border-brand-primary/20 transition-all">
+            <div className="flex justify-between items-start mb-6">
+              <div className="w-10 h-10 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary">
+                <phase.icon className="w-5 h-5" />
+              </div>
+              <div className="text-xs font-mono text-white/20 uppercase tracking-widest">{phase.step}</div>
+            </div>
+            <h3 className="text-xl font-bold mb-4">{phase.title}</h3>
+            <ul className="space-y-3">
+              {phase.items.map((item, j) => (
+                <li key={j} className="flex items-center gap-2 text-sm text-white/40">
+                  <div className="w-1 h-1 rounded-full bg-brand-primary/40" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
+      </div>
+
+      <div className="mt-20 p-10 glass rounded-3xl border border-brand-primary/10 bg-brand-primary/5">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <h3 className="text-2xl font-bold mb-4 italic font-serif">The Onboarding Checklist</h3>
+            <p className="text-white/50 text-sm mb-6">What we need from you to start your private AI journey:</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                "Dedicated Workstation/Server",
+                "High-Speed Internet Access",
+                "List of Repetitive Tasks",
+                "Target Website Credentials",
+                "Internal SOP Documentation",
+                "Primary Technical Contact"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-xs text-white/70">
+                  <CheckCircle2 className="w-4 h-4 text-brand-primary" />
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="text-center md:text-right">
+            <div className="text-4xl font-bold mb-2">48-72 Hours</div>
+            <p className="text-white/40 text-sm">Average time from kickoff to first live operator.</p>
+            <a href="#pricing" className="inline-flex items-center gap-2 mt-6 bg-brand-primary text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform">
+              Start Onboarding <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -373,10 +449,10 @@ const Navbar = () => (
       <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/60">
         <a href="#how-it-works" className="hover:text-brand-primary transition-colors">Process</a>
         <a href="#custom" className="hover:text-brand-primary transition-colors">Custom Ideas</a>
-        <a href="#case-studies" className="hover:text-brand-primary transition-colors">Use Cases</a>
+        <a href="#case-studies" className="hover:text-brand-primary transition-colors">Success Stories</a>
         <a href="#pricing" className="hover:text-brand-primary transition-colors">Pricing</a>
         <a href="#faq" className="hover:text-brand-primary transition-colors">FAQ</a>
-        <a href="#pricing" className="bg-white text-black px-5 py-2 rounded-full hover:bg-brand-primary transition-all">Book Call</a>
+        <a href="#pricing" className="bg-white text-black px-5 py-2 rounded-full hover:bg-brand-primary transition-all">Get Started</a>
       </div>
     </div>
   </nav>
@@ -409,12 +485,12 @@ const Hero = () => (
           Total data privacy. Zero monthly subscriptions. 24/7 productivity with your own private AI employee.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
-          <button className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+          <a href="#pricing" className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform">
             Book Installation <ArrowRight className="w-5 h-5" />
-          </button>
-          <button className="glass px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors">
-            View Use Cases
-          </button>
+          </a>
+          <a href="#case-studies" className="glass px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors">
+            See Success Stories
+          </a>
         </div>
       </motion.div>
     </div>
@@ -460,66 +536,93 @@ const IndustryCard = ({ icon: Icon, title, description, useCases }: any) => (
   </div>
 );
 
-const CustomAI = () => (
-  <section id="custom" className="py-24 bg-brand-primary/5 border-y border-white/5">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="grid lg:grid-cols-2 gap-20 items-center">
-        <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-[10px] font-mono mb-6 uppercase tracking-widest">
-            Custom Development
-          </div>
-          <h2 className="text-4xl font-bold mb-8 leading-tight">
-            Have a Unique Idea? <br />
-            <span className="text-white/40 italic">We build custom AI operators.</span>
-          </h2>
-          <p className="text-white/60 mb-8 leading-relaxed">
-            While we have pre-built blueprints for specific industries, our core expertise is in building bespoke AI operators for unique business challenges. If you have an idea for a private AI assistant that doesn't fit into a standard category, we want to hear it.
-          </p>
-          <div className="space-y-4">
-            {[
-              "Bespoke Browser Automation",
-              "Custom Local Model Fine-tuning",
-              "Unique Tool & API Integrations",
-              "Private Data Pipeline Construction"
-            ].map((item, i) => (
-              <div key={i} className="flex items-center gap-3 text-sm">
-                <CheckCircle2 className="w-4 h-4 text-brand-primary" />
-                <span>{item}</span>
-              </div>
-            ))}
-          </div>
-          <button className="mt-10 bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-brand-primary transition-all">
-            Pitch Your Idea
-          </button>
-        </div>
-        <div className="relative">
-          <div className="absolute inset-0 bg-brand-primary/10 blur-[120px] rounded-full" />
-          <div className="glass p-10 rounded-3xl relative border-brand-primary/20">
-            <div className="flex items-center gap-4 mb-8">
-              <div className="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center">
-                <Zap className="w-6 h-6 text-brand-primary" />
-              </div>
-              <div>
-                <h4 className="font-bold">Rapid Prototyping</h4>
-                <p className="text-xs text-white/40">From Idea to Operator in weeks.</p>
-              </div>
+const CustomAI = () => {
+  const [showPitch, setShowPitch] = React.useState(false);
+
+  return (
+    <section id="custom" className="py-24 bg-brand-primary/5 border-y border-white/5">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-[10px] font-mono mb-6 uppercase tracking-widest">
+              Custom Development
             </div>
-            <p className="text-sm text-white/50 leading-relaxed mb-6">
-              "We had a very specific need for a local AI that could monitor niche forum discussions and summarize sentiment without exposing our internal research. OpenClaw Install built a custom operator that does exactly that, saving us 15 hours of manual browsing every week."
+            <h2 className="text-4xl font-bold mb-8 leading-tight">
+              Have a Unique Idea? <br />
+              <span className="text-white/40 italic">We build custom AI operators.</span>
+            </h2>
+            <p className="text-white/60 mb-8 leading-relaxed">
+              While we have pre-built blueprints for specific industries, our core expertise is in building bespoke AI operators for unique business challenges. If you have an idea for a private AI assistant that doesn't fit into a standard category, we want to hear it.
             </p>
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-white/10" />
-              <div>
-                <div className="text-xs font-bold">David K.</div>
-                <div className="text-[10px] text-white/30">Founder, Stealth Research Lab</div>
+            <div className="space-y-4">
+              {[
+                "Bespoke Browser Automation",
+                "Custom Local Model Fine-tuning",
+                "Unique Tool & API Integrations",
+                "Private Data Pipeline Construction"
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-3 text-sm">
+                  <CheckCircle2 className="w-4 h-4 text-brand-primary" />
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+            <button 
+              onClick={() => setShowPitch(true)}
+              className="mt-10 bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-brand-primary transition-all"
+            >
+              Pitch Your Idea
+            </button>
+          </div>
+          <div className="relative">
+            <div className="absolute inset-0 bg-brand-primary/10 blur-[120px] rounded-full" />
+            <div className="glass p-10 rounded-3xl relative border-brand-primary/20">
+              <div className="flex items-center gap-4 mb-8">
+                <div className="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center">
+                  <Zap className="w-6 h-6 text-brand-primary" />
+                </div>
+                <div>
+                  <h4 className="font-bold">Rapid Prototyping</h4>
+                  <p className="text-xs text-white/40">From Idea to Operator in weeks.</p>
+                </div>
+              </div>
+              <p className="text-sm text-white/50 leading-relaxed mb-6">
+                "We had a very specific need for a local AI that could monitor niche forum discussions and summarize sentiment without exposing our internal research. OpenClaw Install built a custom operator that does exactly that, saving us 15 hours of manual browsing every week."
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-full bg-white/10" />
+                <div>
+                  <div className="text-xs font-bold">David K.</div>
+                  <div className="text-[10px] text-white/30">Founder, Stealth Research Lab</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+
+      {showPitch && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-6 bg-black/80 backdrop-blur-sm">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="glass max-w-md w-full p-10 rounded-3xl relative"
+          >
+            <button 
+              onClick={() => setShowPitch(false)}
+              className="absolute top-6 right-6 text-white/40 hover:text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+            <h3 className="text-2xl font-bold mb-2">Pitch Your Idea</h3>
+            <p className="text-white/50 text-sm mb-8">Tell us about the custom AI operator you want to build.</p>
+            <ContactForm plan="Custom Idea" onCancel={() => setShowPitch(false)} onSuccess={() => setShowPitch(false)} />
+          </motion.div>
+        </div>
+      )}
+    </section>
+  );
+};
 
 const Industries = () => (
   <section id="industries" className="py-24">
@@ -569,6 +672,113 @@ const Industries = () => (
     </div>
   </section>
 );
+
+const ContactForm = ({ plan, onCancel, onSuccess, showMessage = false }: any) => {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    company: '',
+    message: ''
+  });
+  const [loading, setLoading] = React.useState(false);
+  const [status, setStatus] = React.useState<null | 'success' | 'error'>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = await fetch('/api/submit-form', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...formData, plan: plan || 'General Inquiry' })
+      });
+      if (response.ok) {
+        setStatus('success');
+        if (onSuccess) {
+          setTimeout(() => {
+            onSuccess();
+          }, 2000);
+        }
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  if (status === 'success') {
+    return (
+      <div className="text-center py-10">
+        <div className="w-16 h-16 bg-brand-primary/20 text-brand-primary rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle2 className="w-8 h-8" />
+        </div>
+        <h3 className="text-2xl font-bold mb-2">Request Received!</h3>
+        <p className="text-white/50">We'll reach out within 24 hours to schedule your discovery call.</p>
+      </div>
+    );
+  }
+
+  return (
+    <form className={`space-y-4 ${showMessage ? 'grid md:grid-cols-2 gap-6 space-y-0' : ''}`} onSubmit={handleSubmit}>
+      <div className="space-y-1">
+        <label className="text-[10px] font-mono uppercase text-white/40">Full Name</label>
+        <input 
+          required 
+          type="text" 
+          value={formData.name}
+          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" 
+          placeholder="Jane Smith" 
+        />
+      </div>
+      <div className="space-y-1">
+        <label className="text-[10px] font-mono uppercase text-white/40">Work Email</label>
+        <input 
+          required 
+          type="email" 
+          value={formData.email}
+          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" 
+          placeholder="jane@example.com" 
+        />
+      </div>
+      <div className={`space-y-1 ${showMessage ? 'md:col-span-2' : ''}`}>
+        <label className="text-[10px] font-mono uppercase text-white/40">Company / Project</label>
+        <input 
+          required 
+          type="text" 
+          value={formData.company}
+          onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+          className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" 
+          placeholder="Acme Corp" 
+        />
+      </div>
+      {showMessage && (
+        <div className="space-y-1 md:col-span-2">
+          <label className="text-[10px] font-mono uppercase text-white/40">Message</label>
+          <textarea 
+            value={formData.message}
+            onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+            className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors h-32" 
+            placeholder="Tell us about your most repetitive tasks..."
+          />
+        </div>
+      )}
+      {status === 'error' && <p className="text-red-500 text-xs text-center md:col-span-2">Something went wrong. Please try again.</p>}
+      <div className={`pt-4 ${showMessage ? 'md:col-span-2' : ''}`}>
+        <button 
+          disabled={loading}
+          className="w-full bg-brand-primary text-black py-4 rounded-xl font-bold hover:scale-[1.02] transition-transform disabled:opacity-50"
+        >
+          {loading ? 'Processing...' : 'Send Request'}
+        </button>
+      </div>
+    </form>
+  );
+};
 
 const Pricing = () => {
   const [selectedTier, setSelectedTier] = React.useState<any>(null);
@@ -671,30 +881,7 @@ const Pricing = () => {
             <h3 className="text-2xl font-bold mb-2">Book Your Discovery Call</h3>
             <p className="text-white/50 text-sm mb-8">Schedule a technical consultation for the <span className="text-brand-primary font-bold">{selectedTier.name}</span> package.</p>
             
-            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Request received! We will reach out within 24 hours to schedule your discovery call.'); setSelectedTier(null); }}>
-              <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-white/40">Full Name</label>
-                <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" placeholder="Jane Smith" />
-              </div>
-              <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-white/40">Work Email</label>
-                <input required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" placeholder="jane@example.com" />
-              </div>
-              <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-white/40">Preferred Timezone</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors appearance-none">
-                  <option className="bg-brand-dark">EST (New York)</option>
-                  <option className="bg-brand-dark">PST (Los Angeles)</option>
-                  <option className="bg-brand-dark">GMT (London)</option>
-                  <option className="bg-brand-dark">Other</option>
-                </select>
-              </div>
-              <div className="pt-4">
-                <button className="w-full bg-brand-primary text-black py-4 rounded-xl font-bold hover:scale-[1.02] transition-transform">
-                  Schedule Consultation
-                </button>
-              </div>
-            </form>
+            <ContactForm plan={selectedTier.name} onCancel={() => setSelectedTier(null)} onSuccess={() => setSelectedTier(null)} />
           </motion.div>
         </div>
       )}
@@ -830,33 +1017,7 @@ export default function LandingPage() {
             Schedule a free consultation to see how a private AI assistant can transform your specific business workflows.
           </p>
           <div className="glass p-8 rounded-3xl text-left">
-            <form className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-xs font-mono uppercase text-white/40">Full Name</label>
-                <input type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" placeholder="John Doe" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-xs font-mono uppercase text-white/40">Work Email</label>
-                <input type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" placeholder="john@firm.com" />
-              </div>
-              <div className="space-y-2 md:col-span-2">
-                <label className="text-xs font-mono uppercase text-white/40">Industry</label>
-                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors appearance-none">
-                  <option className="bg-brand-dark">Law Firm</option>
-                  <option className="bg-brand-dark">Real Estate</option>
-                  <option className="bg-brand-dark">Medical Practice</option>
-                  <option className="bg-brand-dark">Logistics</option>
-                  <option className="bg-brand-dark">Other</option>
-                </select>
-              </div>
-              <div className="space-y-2 md:col-span-2">
-                <label className="text-xs font-mono uppercase text-white/40">Message</label>
-                <textarea className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors h-32" placeholder="Tell us about your most repetitive tasks..."></textarea>
-              </div>
-              <button className="md:col-span-2 bg-brand-primary text-black py-4 rounded-xl font-bold hover:scale-[1.02] transition-transform">
-                Send Request
-              </button>
-            </form>
+            <ContactForm showMessage={true} />
           </div>
         </div>
       </section>
