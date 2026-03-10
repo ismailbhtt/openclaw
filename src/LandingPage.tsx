@@ -29,8 +29,8 @@ const HowItWorks = () => (
   <section id="how-it-works" className="py-24 bg-white/[0.02]">
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">The Deployment Process</h2>
-        <p className="text-white/50">From zero to a fully autonomous AI workforce in 4 steps.</p>
+        <h2 className="text-4xl font-bold mb-4">OpenClaw Install Deployment Process</h2>
+        <p className="text-white/50">From zero to a fully autonomous private AI workforce in 4 steps.</p>
       </div>
       <div className="grid md:grid-cols-4 gap-8">
         {[
@@ -54,8 +54,8 @@ const Comparison = () => (
   <section className="py-24">
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">Why Local AI?</h2>
-        <p className="text-white/50">The difference between renting intelligence and owning it.</p>
+        <h2 className="text-4xl font-bold mb-4">Why Choose OpenClaw Install for Local AI?</h2>
+        <p className="text-white/50">The difference between renting intelligence from cloud providers and owning your own private AI infrastructure.</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
@@ -90,7 +90,7 @@ const Comparison = () => (
 const ROICalculator = () => {
   const [employees, setEmployees] = React.useState(5);
   const [hoursSaved, setHoursSaved] = React.useState(10);
-  const hourlyRate = 50;
+  const [hourlyRate, setHourlyRate] = React.useState(30);
   
   const monthlySavings = employees * hoursSaved * hourlyRate * 4;
   const yearlySavings = monthlySavings * 12;
@@ -127,13 +127,25 @@ const ROICalculator = () => {
                   className="w-full accent-brand-primary"
                 />
               </div>
+
+              <div className="space-y-4">
+                <div className="flex justify-between text-sm font-mono uppercase">
+                  <span>Average Hourly Wage</span>
+                  <span className="text-brand-primary">${hourlyRate}/hr</span>
+                </div>
+                <input 
+                  type="range" min="15" max="200" step="5" value={hourlyRate} 
+                  onChange={(e) => setHourlyRate(parseInt(e.target.value))}
+                  className="w-full accent-brand-primary"
+                />
+              </div>
             </div>
           </div>
           
           <div className="glass p-10 rounded-3xl text-center glow-green border-brand-primary/20">
             <div className="text-xs font-mono text-brand-primary uppercase tracking-widest mb-4">Estimated Annual Savings</div>
             <div className="text-7xl font-bold mb-2">${yearlySavings.toLocaleString()}</div>
-            <p className="text-white/40 text-sm mb-8">Based on a conservative $50/hr labor rate</p>
+            <p className="text-white/40 text-sm mb-8">Based on your custom labor and efficiency inputs</p>
             <div className="h-px bg-white/10 mb-8" />
             <div className="grid grid-cols-2 gap-4">
               <div className="text-left">
@@ -142,7 +154,7 @@ const ROICalculator = () => {
               </div>
               <div className="text-left">
                 <div className="text-[10px] font-mono text-white/40 uppercase">Payback Period</div>
-                <div className="text-2xl font-bold">~2 Months</div>
+                <div className="text-2xl font-bold">~{Math.max(1, Math.round(3500 / (monthlySavings || 1)))} Months</div>
               </div>
             </div>
           </div>
@@ -152,40 +164,115 @@ const ROICalculator = () => {
   );
 };
 
-const Testimonials = () => (
-  <section className="py-24">
-    <div className="max-w-7xl mx-auto px-6">
-      <div className="text-center mb-16">
+const Testimonials = () => {
+  const testimonials = [
+    {
+      quote: "We were spending $2,000/month on AI subscriptions and still worried about client confidentiality. Our costs dropped to zero, and our research speed tripled.",
+      author: "Sarah Jenkins",
+      role: "Managing Partner, Jenkins Law Group",
+      result: "70% faster research"
+    },
+    {
+      quote: "The browser automation is a game changer. Our AI assistant now researches property listings and drafts outreach emails while we sleep.",
+      author: "Marcus Chen",
+      role: "Founder, Chen Realty",
+      result: "400+ leads/week"
+    },
+    {
+      quote: "HIPAA compliance was our biggest hurdle for AI. Running everything locally on our own server solved it instantly. The admin team is finally caught up.",
+      author: "Dr. Elena Rossi",
+      role: "Chief of Staff, Rossi Medical",
+      result: "Zero data leaks"
+    },
+    {
+      quote: "Dispatch used to be a manual nightmare. Now our local operator handles the load boards and summarizes driver logs automatically.",
+      author: "Tom Braddock",
+      role: "Ops Director, Braddock Logistics",
+      result: "20hrs saved/week"
+    },
+    {
+      quote: "As a solo consultant, I couldn't afford a full-time assistant. This one-time setup gave me a research partner that knows my entire client history.",
+      author: "James Wilson",
+      role: "Strategic Consultant",
+      result: "10x output"
+    },
+    {
+      quote: "The ability to process thousands of documents locally without API costs is why we chose OpenClaw. It paid for itself in less than 60 days.",
+      author: "Linda Wu",
+      role: "CTO, DataStream Analytics",
+      result: "ROI in 2 months"
+    }
+  ];
+
+  return (
+    <section className="py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
         <h2 className="text-4xl font-bold mb-4">Client Success Stories</h2>
-        <p className="text-white/50">Real results from firms that made the switch to local AI.</p>
+        <p className="text-white/50">Trusted by industry leaders who value privacy and performance.</p>
       </div>
-      <div className="grid md:grid-cols-2 gap-8">
-        {[
-          {
-            quote: "We were spending $2,000/month on AI subscriptions and still worried about client confidentiality. OpenClaw Install set up a local server in 48 hours. Our costs dropped to zero, and our research speed tripled.",
-            author: "Sarah Jenkins",
-            role: "Managing Partner, Jenkins Law Group",
-            result: "70% reduction in research time"
-          },
-          {
-            quote: "The browser automation is a game changer. Our AI assistant now researches property listings and drafts outreach emails while we sleep. It's like having a full-time assistant for a one-time fee.",
-            author: "Marcus Chen",
-            role: "Founder, Chen Realty",
-            result: "400+ leads processed weekly"
-          }
-        ].map((t, i) => (
-          <div key={i} className="glass p-10 rounded-3xl relative">
-            <Quote className="w-10 h-10 text-brand-primary/20 absolute top-8 right-8" />
-            <p className="text-lg italic mb-8 leading-relaxed">"{t.quote}"</p>
-            <div className="flex justify-between items-end">
-              <div>
-                <div className="font-bold">{t.author}</div>
-                <div className="text-xs text-white/40">{t.role}</div>
-              </div>
-              <div className="bg-brand-primary/10 text-brand-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
-                {t.result}
+      
+      <div className="relative flex">
+        <motion.div 
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+          className="flex gap-8 whitespace-nowrap"
+        >
+          {[...testimonials, ...testimonials].map((t, i) => (
+            <div key={i} className="glass p-10 rounded-3xl w-[450px] shrink-0 whitespace-normal relative">
+              <Quote className="w-10 h-10 text-brand-primary/20 absolute top-8 right-8" />
+              <p className="text-lg italic mb-8 leading-relaxed">"{t.quote}"</p>
+              <div className="flex justify-between items-end">
+                <div>
+                  <div className="font-bold">{t.author}</div>
+                  <div className="text-xs text-white/40">{t.role}</div>
+                </div>
+                <div className="bg-brand-primary/10 text-brand-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                  {t.result}
+                </div>
               </div>
             </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const CaseStudies = () => (
+  <section id="case-studies" className="py-20 opacity-80">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold mb-3">Real-World Local AI Implementation Examples</h2>
+        <p className="text-white/40 text-sm max-w-xl">See how OpenClaw Install helps businesses automate workflows with private AI operators.</p>
+      </div>
+      
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        {[
+          {
+            industry: "Legal AI",
+            title: "Private Case Discovery",
+            outcome: "Summarized 1k+ sensitive legal docs locally in 4h for a boutique firm."
+          },
+          {
+            industry: "Real Estate AI",
+            title: "Automated Lead Response",
+            outcome: "Automated initial Zillow lead qualification 24/7 with a local AI operator."
+          },
+          {
+            industry: "Logistics AI",
+            title: "Dispatch Automation",
+            outcome: "Automated load board monitoring and log matching using local LLMs."
+          },
+          {
+            industry: "Medical AI",
+            title: "HIPAA Compliant Summaries",
+            outcome: "Converted voice notes to clinical summaries offline for total patient privacy."
+          }
+        ].map((caseStudy, i) => (
+          <div key={i} className="glass p-6 rounded-xl border-l-2 border-l-brand-primary/30">
+            <div className="text-[10px] font-mono text-brand-primary/60 uppercase tracking-widest mb-2">{caseStudy.industry}</div>
+            <h3 className="text-lg font-bold mb-2">{caseStudy.title}</h3>
+            <p className="text-white/40 text-xs leading-relaxed">{caseStudy.outcome}</p>
           </div>
         ))}
       </div>
@@ -197,11 +284,54 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = React.useState<number | null>(0);
   
   const faqs = [
-    { q: "Do I need expensive hardware?", a: "Not necessarily. We can optimize models for mid-range PCs, or recommend a dedicated local server build (starting at ~$1,500) that will pay for itself in months." },
-    { q: "Is it really 100% private?", a: "Yes. The models run entirely on your hardware. We configure the system so it doesn't require an internet connection to process your data." },
-    { q: "What happens if the software needs an update?", a: "Our Business and Advanced tiers include support windows. We also offer a low-cost monthly maintenance plan to keep your models and scripts up to date." },
-    { q: "Can it really browse the web?", a: "Yes. OpenClaw uses browser automation to navigate websites just like a human would, allowing it to research, fill forms, and extract data." },
-    { q: "How long does installation take?", a: "Most installations are completed within 48-72 hours of hardware readiness." },
+    { 
+      q: "What is OpenClaw Install and how does it help my business?", 
+      a: "OpenClaw Install is a professional service that deploys private AI operators on your local hardware. We use tools like OpenClaw and Ollama to give you a self-hosted alternative to ChatGPT, ensuring your data never leaves your office." 
+    },
+    { 
+      q: "Is OpenClaw better than ChatGPT for business automation?", 
+      a: "For businesses that handle sensitive data, OpenClaw is superior because it runs locally. It offers total data sovereignty, zero monthly fees, and the ability to automate complex browser-based workflows without API restrictions." 
+    },
+    { 
+      q: "How does OpenClaw differ from standard browser automation like Selenium?", 
+      a: "Unlike traditional automation that relies on rigid selectors, OpenClaw uses LLMs to 'see' and interact with the DOM dynamically. It can handle complex UI changes, solve captchas, and navigate multi-step workflows that would break standard scripts." 
+    },
+    { 
+      q: "What are the specific hardware requirements for running Llama 3.1 70B locally?", 
+      a: "For the 70B model, we recommend at least 64GB of Unified Memory (Mac Studio M2/M3) or dual RTX 3090/4090 GPUs (48GB+ VRAM). For smaller 8B or 14B models, a standard M1 Mac or a single mid-range NVIDIA GPU is sufficient." 
+    },
+    { 
+      q: "Can OpenClaw interact with desktop applications, or just the browser?", 
+      a: "While OpenClaw is primarily optimized for browser-based 'operators', we can configure it to interact with local file systems, databases, and any application that has a web-based interface or accessible API." 
+    },
+    { 
+      q: "How do you handle model updates and 'hallucinations' in a business context?", 
+      a: "We implement RAG (Retrieval-Augmented Generation) and strict system prompting to ground the model in your specific business data. We also set up 'human-in-the-loop' checkpoints for critical tasks to ensure 100% accuracy before any action is taken." 
+    },
+    { 
+      q: "Is there a recurring cost for the LLM usage?", 
+      a: "No. Because the models run on your hardware, there are zero token costs or monthly API fees. Your only recurring cost is the electricity to run the machine." 
+    },
+    { 
+      q: "What is the 'Operator Blueprint' exactly?", 
+      a: "It's a pre-configured set of instructions, tools, and browser automation scripts tailored to your industry. Instead of starting from scratch, we deploy a tested framework for tasks like 'Legal Discovery' or 'Real Estate Lead Gen'." 
+    },
+    { 
+      q: "How do you ensure the system stays secure if it's connected to the internet?", 
+      a: "We configure local firewalls and ensure that the LLM itself never sends your data to external servers. The internet connection is only used by the browser operator to perform the tasks you've assigned it." 
+    },
+    { 
+      q: "Can I run multiple operators simultaneously?", 
+      a: "Yes, depending on your hardware. High-end workstations can support multiple concurrent 'worker' instances, allowing you to scale your automated workforce as your needs grow." 
+    },
+    { 
+      q: "What happens if the website UI changes and breaks the automation?", 
+      a: "Because OpenClaw uses an LLM to interpret the page, it is significantly more resilient to UI changes than traditional scrapers. If a major change occurs, the model can often 'reason' its way through the new layout without manual re-coding." 
+    },
+    { 
+      q: "Do you offer custom model fine-tuning?", 
+      a: "In our Advanced tier, we can assist with fine-tuning models on your specific document corpus or communication style to ensure the AI sounds and acts exactly like a member of your team." 
+    }
   ];
 
   return (
@@ -242,10 +372,11 @@ const Navbar = () => (
       </div>
       <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/60">
         <a href="#how-it-works" className="hover:text-brand-primary transition-colors">Process</a>
-        <a href="#industries" className="hover:text-brand-primary transition-colors">Industries</a>
+        <a href="#custom" className="hover:text-brand-primary transition-colors">Custom Ideas</a>
+        <a href="#case-studies" className="hover:text-brand-primary transition-colors">Use Cases</a>
         <a href="#pricing" className="hover:text-brand-primary transition-colors">Pricing</a>
         <a href="#faq" className="hover:text-brand-primary transition-colors">FAQ</a>
-        <a href="#pricing" className="bg-white text-black px-5 py-2 rounded-full hover:bg-brand-primary transition-all">Buy Now</a>
+        <a href="#pricing" className="bg-white text-black px-5 py-2 rounded-full hover:bg-brand-primary transition-all">Book Call</a>
       </div>
     </div>
   </nav>
@@ -269,13 +400,13 @@ const Hero = () => (
           NOW DEPLOYING PRIVATE AI OPERATORS
         </div>
         <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-[0.9]">
-          Your Private AI <br />
-          <span className="text-brand-primary italic font-serif">Employee</span> <br />
-          Starts Here.
+          OpenClaw Install: <br />
+          <span className="text-brand-primary italic font-serif">Private AI</span> <br />
+          Workforce & Local AI Automation.
         </h1>
         <p className="text-xl text-white/60 mb-10 max-w-xl leading-relaxed">
-          We install, configure, and customize OpenClaw and local AI models on your hardware. 
-          Total privacy. Zero subscriptions. 24/7 productivity.
+          We install, configure, and customize OpenClaw and local AI models like Llama 3.1 on your own hardware. 
+          Total data privacy. Zero monthly subscriptions. 24/7 productivity with your own private AI employee.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <button className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform">
@@ -329,49 +460,110 @@ const IndustryCard = ({ icon: Icon, title, description, useCases }: any) => (
   </div>
 );
 
+const CustomAI = () => (
+  <section id="custom" className="py-24 bg-brand-primary/5 border-y border-white/5">
+    <div className="max-w-7xl mx-auto px-6">
+      <div className="grid lg:grid-cols-2 gap-20 items-center">
+        <div>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-[10px] font-mono mb-6 uppercase tracking-widest">
+            Custom Development
+          </div>
+          <h2 className="text-4xl font-bold mb-8 leading-tight">
+            Have a Unique Idea? <br />
+            <span className="text-white/40 italic">We build custom AI operators.</span>
+          </h2>
+          <p className="text-white/60 mb-8 leading-relaxed">
+            While we have pre-built blueprints for specific industries, our core expertise is in building bespoke AI operators for unique business challenges. If you have an idea for a private AI assistant that doesn't fit into a standard category, we want to hear it.
+          </p>
+          <div className="space-y-4">
+            {[
+              "Bespoke Browser Automation",
+              "Custom Local Model Fine-tuning",
+              "Unique Tool & API Integrations",
+              "Private Data Pipeline Construction"
+            ].map((item, i) => (
+              <div key={i} className="flex items-center gap-3 text-sm">
+                <CheckCircle2 className="w-4 h-4 text-brand-primary" />
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+          <button className="mt-10 bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-brand-primary transition-all">
+            Pitch Your Idea
+          </button>
+        </div>
+        <div className="relative">
+          <div className="absolute inset-0 bg-brand-primary/10 blur-[120px] rounded-full" />
+          <div className="glass p-10 rounded-3xl relative border-brand-primary/20">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-12 h-12 rounded-xl bg-brand-primary/10 flex items-center justify-center">
+                <Zap className="w-6 h-6 text-brand-primary" />
+              </div>
+              <div>
+                <h4 className="font-bold">Rapid Prototyping</h4>
+                <p className="text-xs text-white/40">From Idea to Operator in weeks.</p>
+              </div>
+            </div>
+            <p className="text-sm text-white/50 leading-relaxed mb-6">
+              "We had a very specific need for a local AI that could monitor niche forum discussions and summarize sentiment without exposing our internal research. OpenClaw Install built a custom operator that does exactly that, saving us 15 hours of manual browsing every week."
+            </p>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full bg-white/10" />
+              <div>
+                <div className="text-xs font-bold">David K.</div>
+                <div className="text-[10px] text-white/30">Founder, Stealth Research Lab</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
 const Industries = () => (
   <section id="industries" className="py-24">
     <div className="max-w-7xl mx-auto px-6">
       <div className="mb-16">
-        <h2 className="text-4xl font-bold mb-4">Industry Blueprints</h2>
-        <p className="text-white/50 max-w-2xl">We don't just install software. We deploy industry-specific AI workflows tailored to your business needs.</p>
+        <h2 className="text-4xl font-bold mb-4">Industry-Specific Local AI Blueprints</h2>
+        <p className="text-white/50 max-w-2xl">We don't just install software. We deploy industry-specific AI workflows and private LLM solutions tailored to your unique business needs.</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <IndustryCard 
           icon={Scale}
-          title="Law Firms"
-          description="Automate document review and legal research without sending sensitive client data to the cloud."
+          title="Legal AI Automation"
+          description="Automate document review and legal research with a private AI operator. No sensitive client data ever leaves your office."
           useCases={["Summarize legal documents", "Organize case notes", "Research legal topics", "Draft document outlines"]}
         />
         <IndustryCard 
           icon={Home}
-          title="Real Estate"
-          description="Scale your outreach and property analysis with an AI that knows your market inside out."
+          title="Real Estate AI Assistant"
+          description="Scale your outreach and property analysis with a local AI that knows your market inside out. Zero API costs."
           useCases={["Research property listings", "Summarize property details", "Draft buyer emails", "Lead tracking & follow-up"]}
         />
         <IndustryCard 
           icon={Stethoscope}
-          title="Medical Clinics"
-          description="HIPAA-compliant local AI for administrative tasks and patient documentation summaries."
+          title="Medical AI Solutions"
+          description="HIPAA-compliant local AI for administrative tasks and patient documentation summaries. 100% offline security."
           useCases={["Summarize patient notes", "Research billing codes", "Administrative automation", "Appointment scheduling"]}
         />
         <IndustryCard 
           icon={Briefcase}
-          title="Consultants"
-          description="A research partner that helps you generate reports and analyze business data 10x faster."
+          title="AI for Consultants"
+          description="A private research partner that helps you generate reports and analyze business data 10x faster using local models."
           useCases={["Market research reports", "Meeting summarization", "Business data analysis", "Proposal drafting"]}
         />
         <IndustryCard 
           icon={Truck}
-          title="Logistics"
-          description="Optimize dispatch and operations with an AI operator that handles the data heavy lifting."
+          title="Logistics AI Operator"
+          description="Optimize dispatch and operations with a local AI operator that handles the data heavy lifting for freight leads."
           useCases={["Research freight leads", "Summarize dispatch info", "Operations data organization", "Route optimization"]}
         />
         <IndustryCard 
-          icon={Building2}
-          title="Small Business"
-          description="The 'everything' assistant for owners who need to be in ten places at once."
-          useCases={["Customer support automation", "Inventory tracking", "Marketing copy generation", "Email management"]}
+          icon={Zap}
+          title="Custom AI Workforce"
+          description="Have a unique workflow or a specialized business need? We build bespoke AI operators and custom local LLM solutions."
+          useCases={["Custom browser automation", "Niche data processing", "Unique tool integrations", "Proprietary AI workflows"]}
         />
       </div>
     </div>
@@ -392,7 +584,7 @@ const Pricing = () => {
           {[
             {
               name: "Basic Setup",
-              price: "1,499",
+              price: "999",
               description: "Perfect for individuals and small offices.",
               features: [
                 "OpenClaw Installation",
@@ -404,7 +596,7 @@ const Pricing = () => {
             },
             {
               name: "Business Automation",
-              price: "3,499",
+              price: "2,499",
               description: "The sweet spot for growing practices.",
               features: [
                 "Everything in Basic",
@@ -418,7 +610,7 @@ const Pricing = () => {
             },
             {
               name: "Advanced Operator",
-              price: "7,999",
+              price: "5,999",
               description: "Custom enterprise-grade AI deployment.",
               features: [
                 "Everything in Business",
@@ -456,7 +648,7 @@ const Pricing = () => {
                 onClick={() => setSelectedTier(tier)}
                 className={`w-full py-4 rounded-xl font-bold transition-all ${tier.popular ? 'bg-brand-primary text-black hover:scale-105' : 'bg-white/10 hover:bg-white/20'}`}
               >
-                Buy {tier.name}
+                Book Discovery Call
               </button>
             </div>
           ))}
@@ -476,32 +668,30 @@ const Pricing = () => {
             >
               <X className="w-6 h-6" />
             </button>
-            <h3 className="text-2xl font-bold mb-2">Complete Your Order</h3>
-            <p className="text-white/50 text-sm mb-8">You are purchasing the <span className="text-brand-primary font-bold">{selectedTier.name}</span>.</p>
+            <h3 className="text-2xl font-bold mb-2">Book Your Discovery Call</h3>
+            <p className="text-white/50 text-sm mb-8">Schedule a technical consultation for the <span className="text-brand-primary font-bold">{selectedTier.name}</span> package.</p>
             
-            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Order received! Our team will contact you within 24 hours to schedule your installation.'); setSelectedTier(null); }}>
+            <form className="space-y-4" onSubmit={(e) => { e.preventDefault(); alert('Request received! We will reach out within 24 hours to schedule your discovery call.'); setSelectedTier(null); }}>
               <div className="space-y-1">
                 <label className="text-[10px] font-mono uppercase text-white/40">Full Name</label>
                 <input required type="text" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" placeholder="Jane Smith" />
               </div>
               <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-white/40">Email Address</label>
+                <label className="text-[10px] font-mono uppercase text-white/40">Work Email</label>
                 <input required type="email" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors" placeholder="jane@example.com" />
               </div>
               <div className="space-y-1">
-                <label className="text-[10px] font-mono uppercase text-white/40">Payment Method</label>
-                <div className="grid grid-cols-2 gap-2">
-                  <div className="p-3 rounded-xl border border-brand-primary/50 bg-brand-primary/10 text-xs font-bold text-center">Credit Card</div>
-                  <div className="p-3 rounded-xl border border-white/10 bg-white/5 text-xs font-bold text-center opacity-50">Crypto (Coming Soon)</div>
-                </div>
+                <label className="text-[10px] font-mono uppercase text-white/40">Preferred Timezone</label>
+                <select className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-brand-primary outline-none transition-colors appearance-none">
+                  <option className="bg-brand-dark">EST (New York)</option>
+                  <option className="bg-brand-dark">PST (Los Angeles)</option>
+                  <option className="bg-brand-dark">GMT (London)</option>
+                  <option className="bg-brand-dark">Other</option>
+                </select>
               </div>
               <div className="pt-4">
-                <div className="flex justify-between text-sm mb-4">
-                  <span className="text-white/50">Total Due:</span>
-                  <span className="font-bold text-xl">${selectedTier.price}</span>
-                </div>
                 <button className="w-full bg-brand-primary text-black py-4 rounded-xl font-bold hover:scale-[1.02] transition-transform">
-                  Pay & Schedule Installation
+                  Schedule Consultation
                 </button>
               </div>
             </form>
@@ -540,7 +730,7 @@ const Footer = () => (
           <h4 className="font-bold mb-6">Contact</h4>
           <ul className="space-y-4 text-sm text-white/40">
             <li>hello@openclawinstall.cc</li>
-            <li>+1 (555) AI-READY</li>
+            <li>+1 (209) 444-7244</li>
             <li>San Francisco, CA</li>
           </ul>
         </div>
@@ -627,6 +817,8 @@ export default function LandingPage() {
       </section>
 
       <Industries />
+      <CustomAI />
+      <CaseStudies />
       <Testimonials />
       <Pricing />
       <FAQ />
