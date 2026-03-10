@@ -904,35 +904,39 @@ const Footer = () => (
             <div className="w-8 h-8 bg-brand-primary rounded flex items-center justify-center">
               <Terminal className="text-black w-5 h-5" />
             </div>
-            <span className="font-mono font-bold text-xl tracking-tighter">OPENCLAW<span className="text-brand-primary">INSTALL</span></span>
+            <span className="font-mono font-bold text-xl tracking-tighter uppercase">OPENCLAW<span className="text-brand-primary">INSTALL</span></span>
           </div>
-          <p className="text-white/40 text-sm max-w-sm">
-            The world's leading deployment service for private AI operators and local LLM infrastructure.
+          <p className="text-white/40 text-sm max-w-sm leading-relaxed mb-8">
+            The world's first professional deployment service for private AI workforces. We help you own your intelligence.
           </p>
         </div>
         <div>
           <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-white/60">Installation Guides</h4>
           <ul className="space-y-4 text-sm text-white/40">
             <li><Link to="/install/docker" className="hover:text-brand-primary transition-colors">Docker Installation</Link></li>
-            <li><Link to="/install/linux" className="hover:text-brand-primary transition-colors">Linux (Ubuntu) Setup</Link></li>
+            <li><Link to="/install/linux" className="hover:text-brand-primary transition-colors">Linux Native Setup</Link></li>
+            <li><Link to="/install/clawbot" className="hover:text-brand-primary transition-colors">Clawbot Setup</Link></li>
+            <li><Link to="/install/open-claw" className="hover:text-brand-primary transition-colors">OpenClaw Core</Link></li>
             <li><Link to="/install/troubleshooting" className="hover:text-brand-primary transition-colors">Troubleshooting Guide</Link></li>
           </ul>
         </div>
         <div>
           <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-white/60">Company</h4>
           <ul className="space-y-4 text-sm text-white/40">
-            <li><a href="#how-it-works" className="hover:text-brand-primary transition-colors">Our Process</a></li>
-            <li><a href="#pricing" className="hover:text-brand-primary transition-colors">Pricing Tiers</a></li>
-            <li><a href="#faq" className="hover:text-brand-primary transition-colors">FAQ</a></li>
+            <li><Link to="/about" className="hover:text-brand-primary transition-colors">About Us</Link></li>
+            <li><Link to="/what-is-open-claw" className="hover:text-brand-primary transition-colors">What is OpenClaw?</Link></li>
+            <li><Link to="/contact" className="hover:text-brand-primary transition-colors">Contact</Link></li>
+            <li><Link to="/privacy-policy" className="hover:text-brand-primary transition-colors">Privacy Policy</Link></li>
+            <li><Link to="/terms-of-service" className="hover:text-brand-primary transition-colors">Terms of Service</Link></li>
             <li><a href="/sitemap.xml" className="hover:text-brand-primary transition-colors">Sitemap</a></li>
           </ul>
         </div>
       </div>
-      <div className="pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4 text-[10px] font-mono text-white/20 uppercase tracking-widest">
-        <div>© 2026 OpenClaw Install. All Rights Reserved.</div>
+      <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono text-white/20 uppercase tracking-widest">
+        <div>© 2026 OPENCLAW INSTALL. ALL RIGHTS RESERVED.</div>
         <div className="flex gap-8">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+          <Link to="/terms-of-service" className="hover:text-white transition-colors">Terms of Service</Link>
         </div>
       </div>
     </div>

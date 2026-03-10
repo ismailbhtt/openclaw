@@ -89,6 +89,13 @@ async function startServer() {
       "/install/docker",
       "/install/troubleshooting",
       "/install/linux",
+      "/install/clawbot",
+      "/install/open-claw",
+      "/what-is-open-claw",
+      "/privacy-policy",
+      "/terms-of-service",
+      "/contact",
+      "/about",
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
