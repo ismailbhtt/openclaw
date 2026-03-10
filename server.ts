@@ -27,6 +27,14 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Redirect http to https in production
+  app.use((req, res, next) => {
+    if (process.env.NODE_ENV === "production" && req.headers["x-forwarded-proto"] !== "https") {
+      return res.redirect(`https://${req.get("host")}${req.url}`);
+    }
+    next();
+  });
+
   // API Route for form submission
   app.post("/api/submit-form", async (req, res) => {
     const { name, email, company, plan, message } = req.body;
@@ -83,9 +91,12 @@ async function startServer() {
 
   // Sitemap route
   app.get("/sitemap.xml", (req, res) => {
-    const baseUrl = process.env.APP_URL || "https://www.openclawinstall.cc";
+    const host = req.get("host") || "www.openclawinstall.cc";
+    const proto = req.headers["x-forwarded-proto"] || "https";
+    const protocol = Array.isArray(proto) ? proto[0] : proto;
+    const baseUrl = `${protocol}://${host}`.replace(/\/$/, "");
     const pages = [
-      "",
+      "/",
       "/install/docker",
       "/install/troubleshooting",
       "/install/linux",
@@ -102,29 +113,34 @@ async function startServer() {
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${pages
   .map((page) => {
+    const url = page === "/" ? `${baseUrl}/` : `${baseUrl}${page}`;
     return `  <url>
-    <loc>${baseUrl}${page}</loc>
+    <loc>${url}</loc>
     <lastmod>${new Date().toISOString().split("T")[0]}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>${page === "" ? "1.0" : "0.8"}</priority>
+    <priority>${page === "/" ? "1.0" : "0.8"}</priority>
   </url>`;
   })
   .join("\n")}
-</urlset>`;
+</urlset>`.trim();
 
-    res.header("Content-Type", "application/xml");
-    res.send(sitemap);
+    res.status(200)
+       .header("Content-Type", "text/xml; charset=utf-8")
+       .header("X-Robots-Tag", "noindex") // Sitemaps themselves shouldn't be indexed as pages
+       .send(sitemap);
   });
 
   // Robots.txt route
   app.get("/robots.txt", (req, res) => {
-    const baseUrl = process.env.APP_URL || "https://www.openclawinstall.cc";
+    const host = req.get("host") || "www.openclawinstall.cc";
+    const proto = req.headers["x-forwarded-proto"] || "https";
+    const protocol = Array.isArray(proto) ? proto[0] : proto;
+    const baseUrl = `${protocol}://${host}`.replace(/\/$/, "");
     const robots = `User-agent: *
 Allow: /
 
-Sitemap: ${baseUrl}/sitemap.xml`;
-    res.header("Content-Type", "text/plain");
-    res.send(robots);
+Sitemap: ${baseUrl}/sitemap.xml`.trim();
+    res.status(200).header("Content-Type", "text/plain").send(robots);
   });
 
   // Vite middleware for development
