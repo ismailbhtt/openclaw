@@ -127,6 +127,7 @@ ${pages
     res.status(200)
        .header("Content-Type", "text/xml; charset=utf-8")
        .header("X-Robots-Tag", "noindex") // Sitemaps themselves shouldn't be indexed as pages
+       .header("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate")
        .send(sitemap);
   });
 
@@ -140,7 +141,10 @@ ${pages
 Allow: /
 
 Sitemap: ${baseUrl}/sitemap.xml`.trim();
-    res.status(200).header("Content-Type", "text/plain").send(robots);
+    res.status(200)
+       .header("Content-Type", "text/plain")
+       .header("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate")
+       .send(robots);
   });
 
   // Vite middleware for development
