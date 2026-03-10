@@ -923,6 +923,7 @@ const Footer = () => (
         <div>
           <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-white/60">Company</h4>
           <ul className="space-y-4 text-sm text-white/40">
+            <li><Link to="/blog" className="hover:text-brand-primary transition-colors">Blog</Link></li>
             <li><Link to="/about" className="hover:text-brand-primary transition-colors">About Us</Link></li>
             <li><Link to="/what-is-open-claw" className="hover:text-brand-primary transition-colors">What is OpenClaw?</Link></li>
             <li><Link to="/contact" className="hover:text-brand-primary transition-colors">Contact</Link></li>

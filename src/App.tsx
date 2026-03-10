@@ -12,6 +12,7 @@ import LinuxInstall from './pages/LinuxInstall';
 import ClawbotInstall from './pages/ClawbotInstall';
 import OpenClawInstall from './pages/OpenClawInstall';
 import WhatIsOpenClaw from './pages/WhatIsOpenClaw';
+import Blog from './pages/Blog';
 import { PrivacyPolicy, TermsOfService, Contact, About } from './pages/StaticPages';
 
 export default function App() {
@@ -19,6 +20,8 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:slug" element={<Blog />} />
         <Route path="/install/docker" element={<DockerInstall />} />
         <Route path="/install/troubleshooting" element={<Troubleshooting />} />
         <Route path="/install/linux" element={<LinuxInstall />} />
