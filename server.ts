@@ -83,7 +83,7 @@ async function startServer() {
 
   // Sitemap route
   app.get("/sitemap.xml", (req, res) => {
-    const baseUrl = process.env.APP_URL || `https://${req.headers.host}`;
+    const baseUrl = process.env.APP_URL || "https://www.openclawinstall.cc";
     const pages = [
       "",
       "/install/docker",
@@ -111,7 +111,7 @@ ${pages
 
   // Robots.txt route
   app.get("/robots.txt", (req, res) => {
-    const baseUrl = process.env.APP_URL || `https://${req.headers.host}`;
+    const baseUrl = process.env.APP_URL || "https://www.openclawinstall.cc";
     const robots = `User-agent: *
 Allow: /
 
