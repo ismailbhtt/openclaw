@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { Link } from 'react-router-dom';
+import { SEO } from './components/SEO';
 import { 
   Shield, 
   Cpu, 
@@ -460,6 +462,10 @@ const Navbar = () => (
 
 const Hero = () => (
   <section className="relative pt-40 pb-20 overflow-hidden">
+    <SEO 
+      title="OpenClaw Install | Private AI Workforce & Local AI Automation" 
+      description="Professional installation and deployment for OpenClaw. Build your private AI workforce with local LLMs like Llama 3.1. 100% data privacy."
+    />
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,255,0,0.05)_0%,transparent_70%)] pointer-events-none" />
     <div className="max-w-7xl mx-auto px-6 relative">
       <motion.div 
@@ -890,9 +896,9 @@ const Pricing = () => {
 };
 
 const Footer = () => (
-  <footer className="py-20 border-t border-white/5">
+  <footer className="py-20 border-t border-white/5 bg-black/20">
     <div className="max-w-7xl mx-auto px-6">
-      <div className="grid md:grid-cols-4 gap-12 mb-20">
+      <div className="grid md:grid-cols-4 gap-12 mb-16">
         <div className="col-span-2">
           <div className="flex items-center gap-2 mb-6">
             <div className="w-8 h-8 bg-brand-primary rounded flex items-center justify-center">
@@ -900,34 +906,33 @@ const Footer = () => (
             </div>
             <span className="font-mono font-bold text-xl tracking-tighter">OPENCLAW<span className="text-brand-primary">INSTALL</span></span>
           </div>
-          <p className="text-white/40 max-w-sm leading-relaxed">
-            We are a premium AI installation service helping businesses reclaim their time and data sovereignty through local AI operators.
+          <p className="text-white/40 text-sm max-w-sm">
+            The world's leading deployment service for private AI operators and local LLM infrastructure.
           </p>
         </div>
         <div>
-          <h4 className="font-bold mb-6">Company</h4>
+          <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-white/60">Installation Guides</h4>
           <ul className="space-y-4 text-sm text-white/40">
-            <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Case Studies</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-white transition-colors">Terms of Service</a></li>
+            <li><Link to="/install/docker" className="hover:text-brand-primary transition-colors">Docker Installation</Link></li>
+            <li><Link to="/install/linux" className="hover:text-brand-primary transition-colors">Linux (Ubuntu) Setup</Link></li>
+            <li><Link to="/install/troubleshooting" className="hover:text-brand-primary transition-colors">Troubleshooting Guide</Link></li>
           </ul>
         </div>
         <div>
-          <h4 className="font-bold mb-6">Contact</h4>
+          <h4 className="font-bold mb-6 text-sm uppercase tracking-widest text-white/60">Company</h4>
           <ul className="space-y-4 text-sm text-white/40">
-            <li>hello@openclawinstall.cc</li>
-            <li>+1 (209) 444-7244</li>
-            <li>San Francisco, CA</li>
+            <li><a href="#how-it-works" className="hover:text-brand-primary transition-colors">Our Process</a></li>
+            <li><a href="#pricing" className="hover:text-brand-primary transition-colors">Pricing Tiers</a></li>
+            <li><a href="#faq" className="hover:text-brand-primary transition-colors">FAQ</a></li>
+            <li><a href="/sitemap.xml" className="hover:text-brand-primary transition-colors">Sitemap</a></li>
           </ul>
         </div>
       </div>
-      <div className="flex flex-col md:row justify-between items-center gap-6 pt-8 border-t border-white/5 text-xs text-white/20 uppercase tracking-widest font-mono">
-        <div>© 2026 OpenClaw Install. All rights reserved.</div>
+      <div className="pt-8 border-t border-white/5 flex flex-col md:row justify-between items-center gap-4 text-[10px] font-mono text-white/20 uppercase tracking-widest">
+        <div>© 2026 OpenClaw Install. All Rights Reserved.</div>
         <div className="flex gap-8">
-          <a href="#" className="hover:text-white transition-colors">Twitter</a>
-          <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-white transition-colors">GitHub</a>
+          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
         </div>
       </div>
     </div>
