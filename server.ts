@@ -1,6 +1,7 @@
 import express from "express";
 import { createServer as createViteServer } from "vite";
 import path from "path";
+import fs from "fs";
 import { fileURLToPath } from "url";
 import Database from "better-sqlite3";
 import fetch from "node-fetch";
@@ -32,11 +33,13 @@ async function startServer() {
   app.use((req, res, next) => {
     const host = req.get("host") || "";
     const isProduction = process.env.NODE_ENV === "production";
-    const isNotHttps = req.headers["x-forwarded-proto"] !== "https";
-    const isNonWww = !host.startsWith("www.");
+    const xForwardedProto = req.headers["x-forwarded-proto"];
+    const isNotHttps = xForwardedProto && xForwardedProto !== "https";
+    const isNonWww = !host.startsWith("www.") && !host.includes("localhost") && !host.includes(".run.app");
 
     if (isProduction && (isNotHttps || isNonWww)) {
       const newHost = isNonWww ? `www.${host}` : host;
+      const protocol = isNotHttps ? "https" : (xForwardedProto || "http");
       return res.redirect(301, `https://${newHost}${req.url}`);
     }
     next();
@@ -161,10 +164,33 @@ Sitemap: ${baseUrl}/sitemap.xml`.trim();
       appType: "spa",
     });
     app.use(vite.middlewares);
+    
+    // SPA Fallback for development
+    app.use("*", async (req, res, next) => {
+      const url = req.originalUrl;
+      if (url.startsWith('/api') || url.includes('.')) {
+        return next();
+      }
+      try {
+        let template = fs.readFileSync(path.resolve(__dirname, "index.html"), "utf-8");
+        template = await vite.transformIndexHtml(url, template);
+        res.status(200).set({ "Content-Type": "text/html" }).end(template);
+      } catch (e) {
+        vite.ssrFixStacktrace(e as Error);
+        next(e);
+      }
+    });
   } else {
-    app.use(express.static(path.join(__dirname, "dist")));
+    const distPath = path.join(__dirname, "dist");
+    app.use(express.static(distPath));
     app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "dist", "index.html"));
+      const indexPath = path.join(distPath, "index.html");
+      if (fs.existsSync(indexPath)) {
+        res.sendFile(indexPath);
+      } else {
+        // Fallback to root index.html if dist doesn't exist (e.g. during build)
+        res.sendFile(path.join(__dirname, "index.html"));
+      }
     });
   }
 
