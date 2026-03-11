@@ -22,6 +22,9 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
         <img
           src={post.image}
           alt={post.altText || post.title}
+          width="800"
+          height="500"
+          loading="lazy"
           className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
           referrerPolicy="no-referrer"
         />
@@ -34,7 +37,7 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
       </div>
       
       <div className="mt-8 space-y-4">
-        <div className="flex items-center gap-4 text-[10px] font-mono text-white/40 uppercase tracking-widest">
+        <div className="flex items-center gap-4 text-[10px] font-mono text-white/70 uppercase tracking-widest">
           <span className="flex items-center gap-1.5">
             <Calendar className="w-3 h-3" />
             {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
@@ -50,7 +53,7 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
           {post.title}
         </h3>
         
-        <p className="text-white/50 text-sm leading-relaxed line-clamp-2 font-light">
+        <p className="text-white/70 text-sm leading-relaxed line-clamp-2 font-light">
           {post.excerpt}
         </p>
         
@@ -108,7 +111,7 @@ const BlogList = () => (
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-xl text-white/40 font-light leading-relaxed max-w-xl"
+          className="text-xl text-white/70 font-light leading-relaxed max-w-xl"
         >
           Deep dives into local AI deployment, data sovereignty, and the future of autonomous workflows.
         </motion.p>
@@ -146,7 +149,7 @@ const BlogPostDetail = ({ post }: { post: BlogPost }) => (
     <div className="max-w-4xl mx-auto px-6 pt-32 pb-32">
       <Link
         to="/blog"
-        className="inline-flex items-center gap-2 text-white/40 hover:text-brand-primary transition-colors mb-12 group text-[10px] font-mono uppercase tracking-widest"
+        className="inline-flex items-center gap-2 text-white/70 hover:text-brand-primary transition-colors mb-12 group text-[10px] font-mono uppercase tracking-widest"
       >
         <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
         Back to Journal
@@ -195,6 +198,9 @@ const BlogPostDetail = ({ post }: { post: BlogPost }) => (
           <img
             src={post.image}
             alt={post.altText || post.title}
+            width="1200"
+            height="630"
+            fetchPriority="high"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />

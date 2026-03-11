@@ -42,14 +42,14 @@ const SDRPage = () => {
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               The Autonomous <span className="text-brand-primary italic font-serif">SDR</span> & Ad Optimizer.
             </h1>
-            <p className="text-xl text-white/60 mb-8 leading-relaxed">
+            <p className="text-xl text-white/80 mb-8 leading-relaxed">
               A high-performance outbound sales and marketing agent that runs entirely on your hardware. It researches prospects, drafts personalized outreach, and optimizes your ad spend in real-time without ever leaving your network.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="/#pricing" className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
                 Hire This Agent
               </a>
-              <div className="flex items-center gap-2 text-white/40 text-sm">
+              <div className="flex items-center gap-2 text-white/70 text-sm">
                 <Shield className="w-4 h-4" /> 100% Private Data
               </div>
             </div>
@@ -60,10 +60,10 @@ const SDRPage = () => {
             <div className="glass p-8 rounded-3xl border border-white/10 relative">
               <div className="space-y-4 font-mono text-xs">
                 <div className="flex items-center justify-between border-b border-white/5 pb-2">
-                  <span className="text-white/40">AGENT_STATUS</span>
+                  <span className="text-white/70">AGENT_STATUS</span>
                   <span className="text-brand-primary">ACTIVE // OUTBOUND_MODE</span>
                 </div>
-                <div className="text-white/60">
+                <div className="text-white/80">
                   {">"} Scanning LinkedIn for "CTO" in "Fintech"...<br />
                   {">"} Found 142 prospects matching criteria.<br />
                   {">"} Analyzing company recent news for personalization...<br />
@@ -124,7 +124,7 @@ const SDRPage = () => {
               <div key={i} className="glass p-8 rounded-2xl border border-white/5 hover:border-brand-primary/20 transition-all">
                 <cap.icon className="w-8 h-8 text-brand-primary mb-4" />
                 <h3 className="text-xl font-bold mb-2">{cap.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{cap.desc}</p>
+                <p className="text-white/70 text-sm leading-relaxed">{cap.desc}</p>
               </div>
             ))}
           </div>
@@ -134,7 +134,7 @@ const SDRPage = () => {
           <div className="grid lg:grid-cols-2 gap-16">
             <div>
               <h2 className="text-3xl font-bold mb-6">Integrations & Connections</h2>
-              <p className="text-white/50 mb-8">
+              <p className="text-white/70 mb-8">
                 Your AI SDR connects directly to the tools your team already uses. Because it runs locally, it uses your own browser sessions and API keys, ensuring zero risk of account bans.
               </p>
               <div className="grid grid-cols-2 gap-4">
@@ -158,7 +158,7 @@ const SDRPage = () => {
                 <h4 className="font-bold mb-2 flex items-center gap-2">
                   <Shield className="w-4 h-4 text-brand-primary" /> Privacy Advantage
                 </h4>
-                <p className="text-sm text-white/40">
+                <p className="text-sm text-white/70">
                   Unlike cloud-based SDR tools, your prospect lists and outreach strategies never touch a third-party server. Your competitive advantage stays private.
                 </p>
               </div>
@@ -166,7 +166,7 @@ const SDRPage = () => {
                 <h4 className="font-bold mb-2 flex items-center gap-2">
                   <Zap className="w-4 h-4 text-brand-primary" /> Local Execution
                 </h4>
-                <p className="text-sm text-white/40">
+                <p className="text-sm text-white/70">
                   Runs on your workstation. No monthly 'per-seat' costs. Hire one agent or ten for the same infrastructure cost.
                 </p>
               </div>
@@ -198,12 +198,12 @@ const SDRPage = () => {
                 <h3 className="text-xl font-bold mb-4 text-brand-primary">{useCase.title}</h3>
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <div className="text-[10px] font-mono text-white/30 uppercase mb-2">The Scenario</div>
-                    <p className="text-white/60 text-sm">{useCase.scenario}</p>
+                    <div className="text-[10px] font-mono text-white/70 uppercase mb-2">The Scenario</div>
+                    <p className="text-white/80 text-sm">{useCase.scenario}</p>
                   </div>
                   <div>
-                    <div className="text-[10px] font-mono text-white/30 uppercase mb-2">The AI Solution</div>
-                    <p className="text-white/60 text-sm">{useCase.solution}</p>
+                    <div className="text-[10px] font-mono text-white/70 uppercase mb-2">The AI Solution</div>
+                    <p className="text-white/80 text-sm">{useCase.solution}</p>
                   </div>
                 </div>
               </div>
@@ -227,7 +227,7 @@ const SDRPage = () => {
                 </div>
                 <div>
                   <div className="font-bold">Michael K.</div>
-                  <div className="text-sm text-white/40">Head of Sales, TechFlow Systems</div>
+                  <div className="text-sm text-white/70">Head of Sales, TechFlow Systems</div>
                 </div>
               </div>
             </div>

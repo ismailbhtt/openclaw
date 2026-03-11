@@ -32,7 +32,7 @@ const HowItWorks = () => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">The Hiring & Deployment Roadmap</h2>
-        <p className="text-white/50">From initial interview to a fully autonomous private AI employee on your team.</p>
+        <p className="text-white/70">From initial interview to a fully autonomous private AI employee on your team.</p>
       </div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -98,7 +98,7 @@ const HowItWorks = () => (
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <h3 className="text-2xl font-bold mb-4 italic font-serif">The Hiring Checklist</h3>
-            <p className="text-white/50 text-sm mb-6">What we need to onboard your new remote AI employee:</p>
+            <p className="text-white/70 text-sm mb-6">What we need to onboard your new remote AI employee:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 "Dedicated Workstation/Server",
@@ -117,7 +117,7 @@ const HowItWorks = () => (
           </div>
           <div className="text-center md:text-right">
             <div className="text-4xl font-bold mb-2">48-72 Hours</div>
-            <p className="text-white/40 text-sm">Average time from kickoff to first live agent.</p>
+            <p className="text-white/70 text-sm">Average time from kickoff to first live agent.</p>
             <a href="#pricing" className="inline-flex items-center gap-2 mt-6 bg-brand-primary text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform">
               Start Hiring <ArrowRight className="w-4 h-4" />
             </a>
@@ -133,14 +133,14 @@ const Comparison = () => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold mb-4">Why Choose OpenClaw Install for Local AI?</h2>
-        <p className="text-white/50">The difference between renting intelligence from cloud providers and owning your own private AI infrastructure.</p>
+        <p className="text-white/70">The difference between renting intelligence from cloud providers and owning your own private AI infrastructure.</p>
       </div>
       <div className="overflow-x-auto">
         <table className="w-full border-collapse">
           <thead>
             <tr className="border-b border-white/10">
-              <th className="p-6 text-left font-mono text-xs uppercase text-white/40">Feature</th>
-              <th className="p-6 text-left font-bold text-white/40">ChatGPT / Cloud AI</th>
+              <th className="p-6 text-left font-mono text-xs uppercase text-white/70">Feature</th>
+              <th className="p-6 text-left font-bold text-white/70">ChatGPT / Cloud AI</th>
               <th className="p-6 text-left font-bold text-brand-primary">OpenClaw Local</th>
             </tr>
           </thead>
@@ -154,7 +154,7 @@ const Comparison = () => (
             ].map((row, i) => (
               <tr key={i} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
                 <td className="p-6 font-medium">{row.f}</td>
-                <td className="p-6 text-white/40">{row.c}</td>
+                <td className="p-6 text-white/70">{row.c}</td>
                 <td className="p-6 text-brand-primary font-bold">{row.l}</td>
               </tr>
             ))}
@@ -190,7 +190,8 @@ const ROICalculator = () => {
                 <input 
                   type="range" min="1" max="50" value={employees} 
                   onChange={(e) => setEmployees(parseInt(e.target.value))}
-                  className="w-full accent-brand-primary"
+                  className="w-full accent-brand-primary cursor-pointer"
+                  aria-label="Number of Employees"
                 />
               </div>
               
@@ -202,7 +203,8 @@ const ROICalculator = () => {
                 <input 
                   type="range" min="1" max="40" value={hoursSaved} 
                   onChange={(e) => setHoursSaved(parseInt(e.target.value))}
-                  className="w-full accent-brand-primary"
+                  className="w-full accent-brand-primary cursor-pointer"
+                  aria-label="Hours Saved per Week per Employee"
                 />
               </div>
 
@@ -214,7 +216,8 @@ const ROICalculator = () => {
                 <input 
                   type="range" min="15" max="200" step="5" value={hourlyRate} 
                   onChange={(e) => setHourlyRate(parseInt(e.target.value))}
-                  className="w-full accent-brand-primary"
+                  className="w-full accent-brand-primary cursor-pointer"
+                  aria-label="Average Hourly Wage"
                 />
               </div>
             </div>
@@ -223,7 +226,7 @@ const ROICalculator = () => {
           <div className="glass p-10 rounded-3xl text-center glow-green border-brand-primary/20">
             <div className="text-xs font-mono text-brand-primary uppercase tracking-widest mb-4">Estimated Annual Savings</div>
             <div className="text-7xl font-bold mb-2">${yearlySavings.toLocaleString()}</div>
-            <p className="text-white/40 text-sm mb-8">Based on your custom labor and efficiency inputs</p>
+            <p className="text-white/70 text-sm mb-8">Based on your custom labor and efficiency inputs</p>
             <div className="h-px bg-white/10 mb-8" />
             <div className="grid grid-cols-2 gap-4">
               <div className="text-left">
@@ -286,14 +289,14 @@ const Testimonials = () => {
     <section className="py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">
         <h2 className="text-4xl font-bold mb-4">Client Success Stories</h2>
-        <p className="text-white/50">Trusted by industry leaders who value privacy and performance.</p>
+        <p className="text-white/70">Trusted by industry leaders who value privacy and performance.</p>
       </div>
       
       <div className="relative flex">
         <motion.div 
           animate={{ x: ["0%", "-50%"] }}
-          transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-          className="flex gap-8 whitespace-nowrap"
+          transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+          className="flex gap-8 whitespace-nowrap will-change-transform"
         >
           {[...testimonials, ...testimonials].map((t, i) => (
             <div key={i} className="glass p-10 rounded-3xl w-[450px] shrink-0 whitespace-normal relative">
@@ -302,7 +305,7 @@ const Testimonials = () => {
               <div className="flex justify-between items-end">
                 <div>
                   <div className="font-bold">{t.author}</div>
-                  <div className="text-xs text-white/40">{t.role}</div>
+                  <div className="text-xs text-white/70">{t.role}</div>
                 </div>
                 <div className="bg-brand-primary/10 text-brand-primary text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                   {t.result}
@@ -321,7 +324,7 @@ const CaseStudies = () => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="mb-12">
         <h2 className="text-3xl font-bold mb-3">Real-World Local AI Implementation Examples</h2>
-        <p className="text-white/40 text-sm max-w-xl">See how OpenClaw Install helps businesses automate workflows with private AI operators.</p>
+        <p className="text-white/70 text-sm max-w-xl">See how OpenClaw Install helps businesses automate workflows with private AI operators.</p>
       </div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -350,7 +353,7 @@ const CaseStudies = () => (
           <div key={i} className="glass p-6 rounded-xl border-l-2 border-l-brand-primary/30">
             <div className="text-[10px] font-mono text-brand-primary/60 uppercase tracking-widest mb-2">{caseStudy.industry}</div>
             <h3 className="text-lg font-bold mb-2">{caseStudy.title}</h3>
-            <p className="text-white/40 text-xs leading-relaxed">{caseStudy.outcome}</p>
+            <p className="text-white/70 text-xs leading-relaxed">{caseStudy.outcome}</p>
           </div>
         ))}
       </div>
@@ -439,7 +442,7 @@ const FAQ = () => {
                 {openIndex === i ? <Minus className="w-4 h-4" /> : <Plus className="w-4 h-4" />}
               </button>
               {openIndex === i && (
-                <div className="p-6 pt-0 text-white/50 text-sm leading-relaxed border-t border-white/5">
+                <div className="p-6 pt-0 text-white/70 text-sm leading-relaxed border-t border-white/5">
                   {faq.a}
                 </div>
               )}
@@ -454,12 +457,12 @@ const FAQ = () => {
 const Navbar = () => (
   <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-brand-dark/80 backdrop-blur-md">
     <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <div className="flex items-center gap-2">
-        <div className="w-8 h-8 bg-brand-primary rounded flex items-center justify-center">
+      <Link to="/" className="flex items-center gap-2 group">
+        <div className="w-8 h-8 bg-brand-primary rounded flex items-center justify-center group-hover:scale-110 transition-transform">
           <Terminal className="text-black w-5 h-5" />
         </div>
         <span className="font-mono font-bold text-xl tracking-tighter">OPENCLAW<span className="text-brand-primary">INSTALL</span></span>
-      </div>
+      </Link>
       <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/60">
         <a href="#how-it-works" className="hover:text-brand-primary transition-colors">Process</a>
         <a href="#remote-employees" className="hover:text-brand-primary transition-colors">Remote Employees</a>
@@ -498,7 +501,7 @@ const Hero = () => (
           <span className="text-brand-primary italic font-serif">Remote AI</span> <br />
           Employees & Local Automation.
         </h1>
-        <p className="text-xl text-white/60 mb-10 max-w-xl leading-relaxed">
+        <p className="text-xl text-white/70 mb-10 max-w-xl leading-relaxed">
           We install, configure, and customize OpenClaw and local AI models like Llama 3.1 on your own hardware. 
           Total data privacy. Zero monthly subscriptions. 24/7 productivity with your own private remote AI employees.
         </p>
@@ -528,7 +531,7 @@ const Stats = () => (
           <div key={i} className="space-y-1">
             <div className="text-xs font-mono text-brand-primary uppercase tracking-widest">{stat.label}</div>
             <div className="text-4xl font-bold">{stat.value}</div>
-            <div className="text-xs text-white/40 uppercase tracking-tighter">{stat.sub}</div>
+            <div className="text-xs text-white/70 uppercase tracking-tighter">{stat.sub}</div>
           </div>
         ))}
       </div>
@@ -542,7 +545,7 @@ const IndustryCard = ({ icon: Icon, title, description, useCases, link }: any) =
       <Icon className="w-6 h-6" />
     </div>
     <h3 className="text-2xl font-bold mb-4">{title}</h3>
-    <p className="text-white/50 mb-6 text-sm leading-relaxed">{description}</p>
+    <p className="text-white/70 mb-6 text-sm leading-relaxed">{description}</p>
     <ul className="space-y-3 mb-8 flex-grow">
       {useCases.map((useCase: string, i: number) => (
         <li key={i} className="flex items-start gap-2 text-sm text-white/80">
@@ -551,7 +554,11 @@ const IndustryCard = ({ icon: Icon, title, description, useCases, link }: any) =
         </li>
       ))}
     </ul>
-    <Link to={link} className="inline-flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition-all">
+    <Link 
+      to={link} 
+      className="inline-flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition-all min-h-[44px]"
+      aria-label={`Learn more about ${title}`}
+    >
       Learn More <ArrowRight className="w-4 h-4" />
     </Link>
   </div>
@@ -570,7 +577,7 @@ const CustomAI = () => {
             </div>
             <h2 className="text-4xl font-bold mb-8 leading-tight">
               Need a Specialized Employee? <br />
-              <span className="text-white/40 italic">We build custom remote AI agents.</span>
+              <span className="text-white/70 italic">We build custom remote AI agents.</span>
             </h2>
             <p className="text-white/60 mb-8 leading-relaxed">
               While we have pre-built blueprints for specific roles, our core expertise is in building bespoke remote AI agents for unique business challenges. If you have an idea for a private AI employee that doesn't fit into a standard category, we want to hear it.
@@ -612,10 +619,10 @@ const CustomAI = () => {
                 </div>
                 <div>
                   <h4 className="font-bold">Rapid Onboarding</h4>
-                  <p className="text-xs text-white/40">From Idea to Employee in weeks.</p>
+                  <p className="text-xs text-white/70">From Idea to Employee in weeks.</p>
                 </div>
               </div>
-              <p className="text-sm text-white/50 leading-relaxed mb-6">
+              <p className="text-sm text-white/70 leading-relaxed mb-6">
                 "We had a very specific need for a local AI that could monitor niche forum discussions and summarize sentiment without exposing our internal research. OpenClaw Install built a custom remote agent that does exactly that, saving us 15 hours of manual browsing every week."
               </p>
               <div className="flex items-center gap-3">
@@ -644,7 +651,7 @@ const CustomAI = () => {
               <X className="w-6 h-6" />
             </button>
             <h3 className="text-2xl font-bold mb-2">Pitch Your Agent Idea</h3>
-            <p className="text-white/50 text-sm mb-8">Tell us about the custom remote AI agent you want to build.</p>
+            <p className="text-white/70 text-sm mb-8">Tell us about the custom remote AI agent you want to build.</p>
             <ContactForm plan="Custom Agent" onCancel={() => setShowPitch(false)} onSuccess={() => setShowPitch(false)} />
           </motion.div>
         </div>
@@ -658,7 +665,7 @@ const RemoteEmployees = () => (
     <div className="max-w-7xl mx-auto px-6">
       <div className="mb-16">
         <h2 className="text-4xl font-bold mb-4">Hire Your Private Remote AI Employees</h2>
-        <p className="text-white/50 max-w-2xl">We don't just install software. We deploy specialized remote AI agents tailored to your business roles. These are your new high-performance employees.</p>
+        <p className="text-white/70 max-w-2xl">We don't just install software. We deploy specialized remote AI agents tailored to your business roles. These are your new high-performance employees.</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <IndustryCard 
@@ -751,7 +758,7 @@ const ContactForm = ({ plan, onCancel, onSuccess, showMessage = false }: any) =>
           <CheckCircle2 className="w-8 h-8" />
         </div>
         <h3 className="text-2xl font-bold mb-2">Request Received!</h3>
-        <p className="text-white/50">We'll reach out within 24 hours to schedule your discovery call.</p>
+        <p className="text-white/70">We'll reach out within 24 hours to schedule your discovery call.</p>
       </div>
     );
   }
@@ -759,7 +766,7 @@ const ContactForm = ({ plan, onCancel, onSuccess, showMessage = false }: any) =>
   return (
     <form className={`space-y-4 ${showMessage ? 'grid md:grid-cols-2 gap-6 space-y-0' : ''}`} onSubmit={handleSubmit}>
       <div className="space-y-1">
-        <label className="text-[10px] font-mono uppercase text-white/40">Full Name</label>
+        <label className="text-[10px] font-mono uppercase text-white/70">Full Name</label>
         <input 
           required 
           type="text" 
@@ -770,7 +777,7 @@ const ContactForm = ({ plan, onCancel, onSuccess, showMessage = false }: any) =>
         />
       </div>
       <div className="space-y-1">
-        <label className="text-[10px] font-mono uppercase text-white/40">Work Email</label>
+        <label className="text-[10px] font-mono uppercase text-white/70">Work Email</label>
         <input 
           required 
           type="email" 
@@ -781,7 +788,7 @@ const ContactForm = ({ plan, onCancel, onSuccess, showMessage = false }: any) =>
         />
       </div>
       <div className={`space-y-1 ${showMessage ? 'md:col-span-2' : ''}`}>
-        <label className="text-[10px] font-mono uppercase text-white/40">Company / Project</label>
+        <label className="text-[10px] font-mono uppercase text-white/70">Company / Project</label>
         <input 
           required 
           type="text" 
@@ -793,7 +800,7 @@ const ContactForm = ({ plan, onCancel, onSuccess, showMessage = false }: any) =>
       </div>
       {showMessage && (
         <div className="space-y-1 md:col-span-2">
-          <label className="text-[10px] font-mono uppercase text-white/40">Message</label>
+          <label className="text-[10px] font-mono uppercase text-white/70">Message</label>
           <textarea 
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -823,7 +830,7 @@ const Pricing = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Hire Your AI Workforce</h2>
-          <p className="text-white/50">One-time hiring fees. No recurring salary or software costs.</p>
+          <p className="text-white/70">One-time hiring fees. No recurring salary or software costs.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
@@ -877,9 +884,9 @@ const Pricing = () => {
                 <h3 className="text-xl font-bold mb-2">{tier.name}</h3>
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold">${tier.price}</span>
-                  <span className="text-white/40 text-sm">/hire</span>
+                  <span className="text-white/70 text-sm">/hire</span>
                 </div>
-                <p className="text-white/50 text-sm mt-4">{tier.description}</p>
+                <p className="text-white/70 text-sm mt-4">{tier.description}</p>
               </div>
               <ul className="space-y-4 mb-10">
                 {tier.features.map((feature, j) => (
@@ -1006,7 +1013,7 @@ export default function LandingPage() {
             <div>
               <h2 className="text-4xl font-bold mb-8 leading-tight">
                 The AI Revolution is Local. <br />
-                <span className="text-white/40 italic">We handle the complexity.</span>
+                <span className="text-white/70 italic">We handle the complexity.</span>
               </h2>
               <div className="space-y-8">
                 {[
@@ -1032,7 +1039,7 @@ export default function LandingPage() {
                     </div>
                     <div>
                       <h4 className="font-bold mb-2">{item.title}</h4>
-                      <p className="text-white/50 text-sm leading-relaxed">{item.text}</p>
+                      <p className="text-white/70 text-sm leading-relaxed">{item.text}</p>
                     </div>
                   </div>
                 ))}
@@ -1052,7 +1059,7 @@ export default function LandingPage() {
       <section id="contact" className="py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-bold mb-6">Ready to hire your first <span className="text-brand-primary">Remote AI Employee?</span></h2>
-          <p className="text-white/50 mb-10 text-lg">
+          <p className="text-white/70 mb-10 text-lg">
             Schedule a free consultation to see how a private remote AI employee can transform your specific business workflows.
           </p>
           <div className="glass p-8 rounded-3xl text-left">
