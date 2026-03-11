@@ -145,9 +145,12 @@ ${pages
     const baseUrl = "https://www.openclawinstall.cc";
     const robots = `User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /admin/
 
 Sitemap: ${baseUrl}/sitemap.xml`.trim();
     res.header("Content-Type", "text/plain")
+       .header("Cache-Control", "no-store, no-cache, must-revalidate")
        .send(robots);
   });
 
