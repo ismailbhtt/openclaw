@@ -98,10 +98,7 @@ async function startServer() {
 
   // Sitemap route
   app.get("/sitemap.xml", (req, res) => {
-    const host = req.get("host") || "www.openclawinstall.cc";
-    const proto = req.headers["x-forwarded-proto"] || "https";
-    const protocol = Array.isArray(proto) ? proto[0] : proto;
-    const baseUrl = `${protocol}://${host}`.replace(/\/$/, "");
+    const baseUrl = "https://www.openclawinstall.cc";
     const pages = [
       "/",
       "/agents/autonomous-sdr",
@@ -137,27 +134,20 @@ ${pages
   </url>`;
   })
   .join("\n")}
-</urlset>`.trim();
+</urlset>`;
 
-    res.status(200)
-       .header("Content-Type", "text/xml; charset=utf-8")
-       .header("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate")
+    res.header("Content-Type", "application/xml")
        .send(sitemap);
   });
 
   // Robots.txt route
   app.get("/robots.txt", (req, res) => {
-    const host = req.get("host") || "www.openclawinstall.cc";
-    const proto = req.headers["x-forwarded-proto"] || "https";
-    const protocol = Array.isArray(proto) ? proto[0] : proto;
-    const baseUrl = `${protocol}://${host}`.replace(/\/$/, "");
+    const baseUrl = "https://www.openclawinstall.cc";
     const robots = `User-agent: *
 Allow: /
 
 Sitemap: ${baseUrl}/sitemap.xml`.trim();
-    res.status(200)
-       .header("Content-Type", "text/plain")
-       .header("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate")
+    res.header("Content-Type", "text/plain")
        .send(robots);
   });
 
