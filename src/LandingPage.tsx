@@ -31,46 +31,46 @@ const HowItWorks = () => (
   <section id="how-it-works" className="py-24 bg-white/[0.02]">
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
-        <h2 className="text-4xl font-bold mb-4">The A-Z Deployment Roadmap</h2>
-        <p className="text-white/50">From initial discovery to a fully autonomous private AI workforce.</p>
+        <h2 className="text-4xl font-bold mb-4">The Hiring & Deployment Roadmap</h2>
+        <p className="text-white/50">From initial interview to a fully autonomous private AI employee on your team.</p>
       </div>
       
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {[
           { 
-            step: "A-C", 
-            title: "Discovery & Design", 
-            items: ["Requirement Gathering", "Infrastructure Audit", "Custom Blueprint Design"],
+            step: "01", 
+            title: "Role Definition", 
+            items: ["Identify Repetitive Tasks", "Define Success Metrics", "Custom Blueprint Design"],
             icon: Users
           },
           { 
-            step: "D-F", 
-            title: "Core Infrastructure", 
-            items: ["Hardware Procurement", "OS Optimization (CUDA/Metal)", "Core Software Installation"],
+            step: "02", 
+            title: "Hardware Setup", 
+            items: ["Workstation Procurement", "OS Optimization (CUDA/Metal)", "Core Software Installation"],
             icon: Server
           },
           { 
-            step: "G-I", 
-            title: "Model & Tooling", 
-            items: ["Model Selection (Llama 3.1)", "Browser Operator Config", "Tool & CRM Integration"],
+            step: "03", 
+            title: "Agent Training", 
+            items: ["Model Selection (Llama 3.1)", "Internal Data Grounding", "Tool & CRM Integration"],
             icon: Cpu
           },
           { 
-            step: "J-L", 
-            title: "Security & Scripting", 
-            items: ["Security Hardening", "Workflow Automation Scripting", "Edge Case Testing"],
+            step: "04", 
+            title: "Security Hardening", 
+            items: ["Network Isolation", "Workflow Automation Scripting", "Edge Case Testing"],
             icon: Shield
           },
           { 
-            step: "M-O", 
-            title: "Onboarding & Training", 
+            step: "05", 
+            title: "Onboarding", 
             items: ["Human-in-the-Loop Setup", "Performance Benchmarking", "Staff 1-on-1 Training"],
             icon: MousePointer2
           },
           { 
-            step: "P-Z", 
-            title: "Deployment & Scale", 
-            items: ["Live Deployment", "24/7 Monitoring", "Multi-Operator Scaling"],
+            step: "06", 
+            title: "Full Autonomy", 
+            items: ["Live Deployment", "24/7 Monitoring", "Multi-Agent Scaling"],
             icon: Zap
           }
         ].map((phase, i) => (
@@ -79,7 +79,7 @@ const HowItWorks = () => (
               <div className="w-10 h-10 rounded-lg bg-brand-primary/10 flex items-center justify-center text-brand-primary">
                 <phase.icon className="w-5 h-5" />
               </div>
-              <div className="text-xs font-mono text-white/20 uppercase tracking-widest">{phase.step}</div>
+              <div className="text-xs font-mono text-white/20 uppercase tracking-widest">Phase {phase.step}</div>
             </div>
             <h3 className="text-xl font-bold mb-4">{phase.title}</h3>
             <ul className="space-y-3">
@@ -97,8 +97,8 @@ const HowItWorks = () => (
       <div className="mt-20 p-10 glass rounded-3xl border border-brand-primary/10 bg-brand-primary/5">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <h3 className="text-2xl font-bold mb-4 italic font-serif">The Onboarding Checklist</h3>
-            <p className="text-white/50 text-sm mb-6">What we need from you to start your private AI journey:</p>
+            <h3 className="text-2xl font-bold mb-4 italic font-serif">The Hiring Checklist</h3>
+            <p className="text-white/50 text-sm mb-6">What we need to onboard your new remote AI employee:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 "Dedicated Workstation/Server",
@@ -117,9 +117,9 @@ const HowItWorks = () => (
           </div>
           <div className="text-center md:text-right">
             <div className="text-4xl font-bold mb-2">48-72 Hours</div>
-            <p className="text-white/40 text-sm">Average time from kickoff to first live operator.</p>
+            <p className="text-white/40 text-sm">Average time from kickoff to first live agent.</p>
             <a href="#pricing" className="inline-flex items-center gap-2 mt-6 bg-brand-primary text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform">
-              Start Onboarding <ArrowRight className="w-4 h-4" />
+              Start Hiring <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
@@ -409,6 +409,18 @@ const FAQ = () => {
     { 
       q: "Do you offer custom model fine-tuning?", 
       a: "In our Advanced tier, we can assist with fine-tuning models on your specific document corpus or communication style to ensure the AI sounds and acts exactly like a member of your team." 
+    },
+    {
+      q: "What is a 'Remote AI Employee' and how does it differ from a chatbot?",
+      a: "A Remote AI Employee is a specialized autonomous agent designed to perform specific business roles (like SDR, Dispatcher, or Support). Unlike a simple chatbot that just answers questions, these agents can use browsers, interact with your CRM, and complete multi-step workflows autonomously on your local hardware."
+    },
+    {
+      q: "How do I 'hire' an AI employee from OpenClaw?",
+      a: "The hiring process starts with a discovery call where we define the agent's role. We then configure the 'Operator Blueprint' for that role, install the necessary local hardware, and 'onboard' the agent into your existing workflows. It's a one-time setup fee with no recurring salary."
+    },
+    {
+      q: "Can these AI employees connect to my existing software like HubSpot or Slack?",
+      a: "Yes. Our agents are designed to integrate with standard business tools via APIs or direct browser interaction. Because they run locally, they can securely use your existing sessions and credentials without exposing them to third-party cloud providers."
     }
   ];
 
@@ -450,7 +462,7 @@ const Navbar = () => (
       </div>
       <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/60">
         <a href="#how-it-works" className="hover:text-brand-primary transition-colors">Process</a>
-        <a href="#custom" className="hover:text-brand-primary transition-colors">Custom Ideas</a>
+        <a href="#remote-employees" className="hover:text-brand-primary transition-colors">Remote Employees</a>
         <a href="#case-studies" className="hover:text-brand-primary transition-colors">Success Stories</a>
         <a href="#pricing" className="hover:text-brand-primary transition-colors">Pricing</a>
         <a href="#faq" className="hover:text-brand-primary transition-colors">FAQ</a>
@@ -463,8 +475,8 @@ const Navbar = () => (
 const Hero = () => (
   <section className="relative pt-40 pb-20 overflow-hidden">
     <SEO 
-      title="OpenClaw Install | Private AI Workforce & Local AI Automation" 
-      description="Professional installation and deployment for OpenClaw. Build your private AI workforce with local LLMs like Llama 3.1. 100% data privacy."
+      title="OpenClaw Install | Hire Your Private Remote AI Employees" 
+      description="Professional installation and deployment for OpenClaw. Hire your private remote AI employees with local LLMs like Llama 3.1. 100% data privacy."
     />
     <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(0,255,0,0.05)_0%,transparent_70%)] pointer-events-none" />
     <div className="max-w-7xl mx-auto px-6 relative">
@@ -479,20 +491,20 @@ const Hero = () => (
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-primary opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-primary"></span>
           </span>
-          NOW DEPLOYING PRIVATE AI OPERATORS
+          NOW HIRING PRIVATE REMOTE AI EMPLOYEES
         </div>
         <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-[0.9]">
           OpenClaw Install: <br />
-          <span className="text-brand-primary italic font-serif">Private AI</span> <br />
-          Workforce & Local AI Automation.
+          <span className="text-brand-primary italic font-serif">Remote AI</span> <br />
+          Employees & Local Automation.
         </h1>
         <p className="text-xl text-white/60 mb-10 max-w-xl leading-relaxed">
           We install, configure, and customize OpenClaw and local AI models like Llama 3.1 on your own hardware. 
-          Total data privacy. Zero monthly subscriptions. 24/7 productivity with your own private AI employee.
+          Total data privacy. Zero monthly subscriptions. 24/7 productivity with your own private remote AI employees.
         </p>
         <div className="flex flex-col sm:flex-row gap-4">
           <a href="#pricing" className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-transform">
-            Book Installation <ArrowRight className="w-5 h-5" />
+            Hire Your First Agent <ArrowRight className="w-5 h-5" />
           </a>
           <a href="#case-studies" className="glass px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white/10 transition-colors">
             See Success Stories
@@ -524,14 +536,14 @@ const Stats = () => (
   </section>
 );
 
-const IndustryCard = ({ icon: Icon, title, description, useCases }: any) => (
-  <div className="glass p-8 rounded-2xl group hover:border-brand-primary/30 transition-all">
+const IndustryCard = ({ icon: Icon, title, description, useCases, link }: any) => (
+  <div className="glass p-8 rounded-2xl group hover:border-brand-primary/30 transition-all flex flex-col h-full">
     <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-brand-primary/10 group-hover:text-brand-primary transition-colors">
       <Icon className="w-6 h-6" />
     </div>
     <h3 className="text-2xl font-bold mb-4">{title}</h3>
     <p className="text-white/50 mb-6 text-sm leading-relaxed">{description}</p>
-    <ul className="space-y-3">
+    <ul className="space-y-3 mb-8 flex-grow">
       {useCases.map((useCase: string, i: number) => (
         <li key={i} className="flex items-start gap-2 text-sm text-white/80">
           <CheckCircle2 className="w-4 h-4 text-brand-primary shrink-0 mt-0.5" />
@@ -539,6 +551,9 @@ const IndustryCard = ({ icon: Icon, title, description, useCases }: any) => (
         </li>
       ))}
     </ul>
+    <Link to={link} className="inline-flex items-center gap-2 text-brand-primary font-bold hover:gap-3 transition-all">
+      Learn More <ArrowRight className="w-4 h-4" />
+    </Link>
   </div>
 );
 
@@ -546,23 +561,23 @@ const CustomAI = () => {
   const [showPitch, setShowPitch] = React.useState(false);
 
   return (
-    <section id="custom" className="py-24 bg-brand-primary/5 border-y border-white/5">
+    <section id="custom-agents" className="py-24 bg-brand-primary/5 border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-[10px] font-mono mb-6 uppercase tracking-widest">
-              Custom Development
+              Custom Remote Agents
             </div>
             <h2 className="text-4xl font-bold mb-8 leading-tight">
-              Have a Unique Idea? <br />
-              <span className="text-white/40 italic">We build custom AI operators.</span>
+              Need a Specialized Employee? <br />
+              <span className="text-white/40 italic">We build custom remote AI agents.</span>
             </h2>
             <p className="text-white/60 mb-8 leading-relaxed">
-              While we have pre-built blueprints for specific industries, our core expertise is in building bespoke AI operators for unique business challenges. If you have an idea for a private AI assistant that doesn't fit into a standard category, we want to hear it.
+              While we have pre-built blueprints for specific roles, our core expertise is in building bespoke remote AI agents for unique business challenges. If you have an idea for a private AI employee that doesn't fit into a standard category, we want to hear it.
             </p>
             <div className="space-y-4">
               {[
-                "Bespoke Browser Automation",
+                "Bespoke Role Definition",
                 "Custom Local Model Fine-tuning",
                 "Unique Tool & API Integrations",
                 "Private Data Pipeline Construction"
@@ -573,12 +588,20 @@ const CustomAI = () => {
                 </div>
               ))}
             </div>
-            <button 
-              onClick={() => setShowPitch(true)}
-              className="mt-10 bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-brand-primary transition-all"
-            >
-              Pitch Your Idea
-            </button>
+            <div className="flex gap-4 mt-10">
+              <button 
+                onClick={() => setShowPitch(true)}
+                className="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-brand-primary transition-all"
+              >
+                Pitch Your Agent Idea
+              </button>
+              <Link 
+                to="/agents/custom-agent"
+                className="glass px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition-all"
+              >
+                Learn More
+              </Link>
+            </div>
           </div>
           <div className="relative">
             <div className="absolute inset-0 bg-brand-primary/10 blur-[120px] rounded-full" />
@@ -588,12 +611,12 @@ const CustomAI = () => {
                   <Zap className="w-6 h-6 text-brand-primary" />
                 </div>
                 <div>
-                  <h4 className="font-bold">Rapid Prototyping</h4>
-                  <p className="text-xs text-white/40">From Idea to Operator in weeks.</p>
+                  <h4 className="font-bold">Rapid Onboarding</h4>
+                  <p className="text-xs text-white/40">From Idea to Employee in weeks.</p>
                 </div>
               </div>
               <p className="text-sm text-white/50 leading-relaxed mb-6">
-                "We had a very specific need for a local AI that could monitor niche forum discussions and summarize sentiment without exposing our internal research. OpenClaw Install built a custom operator that does exactly that, saving us 15 hours of manual browsing every week."
+                "We had a very specific need for a local AI that could monitor niche forum discussions and summarize sentiment without exposing our internal research. OpenClaw Install built a custom remote agent that does exactly that, saving us 15 hours of manual browsing every week."
               </p>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 rounded-full bg-white/10" />
@@ -620,9 +643,9 @@ const CustomAI = () => {
             >
               <X className="w-6 h-6" />
             </button>
-            <h3 className="text-2xl font-bold mb-2">Pitch Your Idea</h3>
-            <p className="text-white/50 text-sm mb-8">Tell us about the custom AI operator you want to build.</p>
-            <ContactForm plan="Custom Idea" onCancel={() => setShowPitch(false)} onSuccess={() => setShowPitch(false)} />
+            <h3 className="text-2xl font-bold mb-2">Pitch Your Agent Idea</h3>
+            <p className="text-white/50 text-sm mb-8">Tell us about the custom remote AI agent you want to build.</p>
+            <ContactForm plan="Custom Agent" onCancel={() => setShowPitch(false)} onSuccess={() => setShowPitch(false)} />
           </motion.div>
         </div>
       )}
@@ -630,49 +653,55 @@ const CustomAI = () => {
   );
 };
 
-const Industries = () => (
-  <section id="industries" className="py-24">
+const RemoteEmployees = () => (
+  <section id="remote-employees" className="py-24">
     <div className="max-w-7xl mx-auto px-6">
       <div className="mb-16">
-        <h2 className="text-4xl font-bold mb-4">Industry-Specific Local AI Blueprints</h2>
-        <p className="text-white/50 max-w-2xl">We don't just install software. We deploy industry-specific AI workflows and private LLM solutions tailored to your unique business needs.</p>
+        <h2 className="text-4xl font-bold mb-4">Hire Your Private Remote AI Employees</h2>
+        <p className="text-white/50 max-w-2xl">We don't just install software. We deploy specialized remote AI agents tailored to your business roles. These are your new high-performance employees.</p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         <IndustryCard 
-          icon={Scale}
-          title="Legal AI Automation"
-          description="Automate document review and legal research with a private AI operator. No sensitive client data ever leaves your office."
-          useCases={["Summarize legal documents", "Organize case notes", "Research legal topics", "Draft document outlines"]}
-        />
-        <IndustryCard 
-          icon={Home}
-          title="Real Estate AI Assistant"
-          description="Scale your outreach and property analysis with a local AI that knows your market inside out. Zero API costs."
-          useCases={["Research property listings", "Summarize property details", "Draft buyer emails", "Lead tracking & follow-up"]}
-        />
-        <IndustryCard 
-          icon={Stethoscope}
-          title="Medical AI Solutions"
-          description="HIPAA-compliant local AI for administrative tasks and patient documentation summaries. 100% offline security."
-          useCases={["Summarize patient notes", "Research billing codes", "Administrative automation", "Appointment scheduling"]}
-        />
-        <IndustryCard 
-          icon={Briefcase}
-          title="AI for Consultants"
-          description="A private research partner that helps you generate reports and analyze business data 10x faster using local models."
-          useCases={["Market research reports", "Meeting summarization", "Business data analysis", "Proposal drafting"]}
+          icon={TrendingUp}
+          title="Autonomous SDR & Ad Optimizer"
+          description="Automate your outbound sales and ad spend optimization with a local agent that never sleeps."
+          useCases={["Cold outreach automation", "Ad performance tracking", "Budget optimization", "Lead qualification"]}
+          link="/agents/autonomous-sdr"
         />
         <IndustryCard 
           icon={Truck}
-          title="Logistics AI Operator"
-          description="Optimize dispatch and operations with a local AI operator that handles the data heavy lifting for freight leads."
-          useCases={["Research freight leads", "Summarize dispatch info", "Operations data organization", "Route optimization"]}
+          title="Remote AI Truck Dispatcher"
+          description="Manage loads, drivers, and routes with a private AI dispatcher that understands the logistics landscape."
+          useCases={["Load board monitoring", "Driver log analysis", "Route optimization", "Broker communication"]}
+          link="/agents/truck-dispatcher"
+        />
+        <IndustryCard 
+          icon={Briefcase}
+          title="AI Inbox Manager"
+          description="Achieve Inbox Zero every day. Your agent triages, drafts, and archives emails based on your style."
+          useCases={["Email triage & sorting", "Drafting responses", "Calendar management", "Priority alerts"]}
+          link="/agents/inbox-manager"
+        />
+        <IndustryCard 
+          icon={Users}
+          title="AI Lead Nurture Agent"
+          description="Never let a lead go cold. Your agent follows up, answers questions, and books meetings 24/7."
+          useCases={["Automated follow-ups", "Meeting scheduling", "FAQ handling", "CRM data entry"]}
+          link="/agents/lead-nurture"
+        />
+        <IndustryCard 
+          icon={HelpCircle}
+          title="AI Customer Support Agent"
+          description="Provide instant, accurate support to your customers using a private agent grounded in your docs."
+          useCases={["Instant ticket resolution", "Knowledge base search", "Technical troubleshooting", "Feedback collection"]}
+          link="/agents/customer-support"
         />
         <IndustryCard 
           icon={Zap}
-          title="Custom AI Workforce"
-          description="Have a unique workflow or a specialized business need? We build bespoke AI operators and custom local LLM solutions."
-          useCases={["Custom browser automation", "Niche data processing", "Unique tool integrations", "Proprietary AI workflows"]}
+          title="Custom Remote Agent"
+          description="Have a unique role or a specialized business need? We build bespoke remote AI agents for any task."
+          useCases={["Custom browser automation", "Niche data processing", "Unique tool integrations", "Proprietary workflows"]}
+          link="/agents/custom-agent"
         />
       </div>
     </div>
@@ -793,46 +822,46 @@ const Pricing = () => {
     <section id="pricing" className="py-24 bg-white/[0.02] border-y border-white/5">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Investment Tiers</h2>
-          <p className="text-white/50">One-time setup fees. No recurring software costs.</p>
+          <h2 className="text-4xl font-bold mb-4">Hire Your AI Workforce</h2>
+          <p className="text-white/50">One-time hiring fees. No recurring salary or software costs.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              name: "Basic Setup",
+              name: "Junior Agent",
               price: "999",
-              description: "Perfect for individuals and small offices.",
+              description: "Perfect for basic administrative and research tasks.",
               features: [
-                "OpenClaw Installation",
-                "Ollama Configuration",
-                "1 Local Model Setup",
-                "Basic Task Training",
-                "48h Support Window"
+                "OpenClaw Core Installation",
+                "Local Model Configuration",
+                "Basic Role Training",
+                "Email/Chat Support",
+                "48h Deployment Window"
               ]
             },
             {
-              name: "Business Automation",
+              name: "Senior Agent",
               price: "2,499",
-              description: "The sweet spot for growing practices.",
+              description: "Advanced agents with browser automation and tool access.",
               features: [
-                "Everything in Basic",
-                "Browser Automation Setup",
-                "Industry-Specific Workflows",
-                "Document Processing Engine",
-                "Lead Research Automation",
+                "Everything in Junior",
+                "Full Browser Automation",
+                "Specialized Role Blueprint",
+                "CRM & Tool Integration",
+                "Lead Nurture Workflows",
                 "1 Month Priority Support"
               ],
               popular: true
             },
             {
-              name: "Advanced Operator",
+              name: "Executive Agent",
               price: "5,999",
-              description: "Custom enterprise-grade AI deployment.",
+              description: "Custom enterprise-grade AI employees for complex roles.",
               features: [
-                "Everything in Business",
-                "Custom CRM Integrations",
+                "Everything in Senior",
+                "Custom Role Development",
                 "Multi-Model Orchestration",
-                "Hardware Recommendations",
+                "Hardware Optimization",
                 "On-site/Remote Training",
                 "3 Months Dedicated Support"
               ]
@@ -848,7 +877,7 @@ const Pricing = () => {
                 <h3 className="text-xl font-bold mb-2">{tier.name}</h3>
                 <div className="flex items-baseline gap-1">
                   <span className="text-4xl font-bold">${tier.price}</span>
-                  <span className="text-white/40 text-sm">/setup</span>
+                  <span className="text-white/40 text-sm">/hire</span>
                 </div>
                 <p className="text-white/50 text-sm mt-4">{tier.description}</p>
               </div>
@@ -864,7 +893,7 @@ const Pricing = () => {
                 onClick={() => setSelectedTier(tier)}
                 className={`w-full py-4 rounded-xl font-bold transition-all ${tier.popular ? 'bg-brand-primary text-black hover:scale-105' : 'bg-white/10 hover:bg-white/20'}`}
               >
-                Book Discovery Call
+                Start Hiring Process
               </button>
             </div>
           ))}
@@ -961,15 +990,15 @@ export default function LandingPage() {
               <div className="absolute -top-20 -left-20 w-64 h-64 bg-brand-primary/10 blur-[100px]" />
               <div className="glass p-2 rounded-2xl overflow-hidden">
                 <div className="bg-brand-dark rounded-xl p-6 font-mono text-xs space-y-2">
-                  <div className="text-white/30">$ openclaw --install --target=local</div>
+                  <div className="text-white/30">$ openclaw --hire --role=SDR</div>
                   <div className="text-brand-primary">Checking hardware compatibility... [OK]</div>
                   <div className="text-brand-primary">Downloading Llama 3.1 70B... [OK]</div>
                   <div className="text-brand-primary">Configuring browser automation... [OK]</div>
-                  <div className="text-brand-primary">Initializing industry blueprint: Legal... [OK]</div>
+                  <div className="text-brand-primary">Initializing role blueprint: SDR... [OK]</div>
                   <div className="text-white/30 mt-4">$ openclaw --status</div>
                   <div className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-brand-primary animate-pulse" />
-                    <span className="text-white">Operator Online: 24/7 Active</span>
+                    <span className="text-white">Remote Agent Online: 24/7 Active</span>
                   </div>
                 </div>
               </div>
@@ -1013,7 +1042,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      <Industries />
+      <RemoteEmployees />
       <CustomAI />
       <CaseStudies />
       <Testimonials />
@@ -1022,9 +1051,9 @@ export default function LandingPage() {
       
       <section id="contact" className="py-24">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-5xl font-bold mb-6">Ready to hire your first <span className="text-brand-primary">AI Operator?</span></h2>
+          <h2 className="text-5xl font-bold mb-6">Ready to hire your first <span className="text-brand-primary">Remote AI Employee?</span></h2>
           <p className="text-white/50 mb-10 text-lg">
-            Schedule a free consultation to see how a private AI assistant can transform your specific business workflows.
+            Schedule a free consultation to see how a private remote AI employee can transform your specific business workflows.
           </p>
           <div className="glass p-8 rounded-3xl text-left">
             <ContactForm showMessage={true} />

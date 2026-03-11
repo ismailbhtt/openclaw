@@ -8,7 +8,7 @@ const OpenClawInstall = () => {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "How to Install OpenClaw",
-    "description": "Comprehensive guide to installing OpenClaw, the private AI workforce solution.",
+    "description": "Comprehensive guide to installing OpenClaw, the private remote AI employee solution.",
     "step": [
       {
         "@type": "HowToStep",
@@ -31,8 +31,8 @@ const OpenClawInstall = () => {
   return (
     <div className="min-h-screen bg-brand-dark text-white pt-32 pb-20">
       <SEO 
-        title="OpenClaw Installation Guide | Private AI Workforce" 
-        description="Step-by-step guide to installing OpenClaw. The ultimate private, local AI assistant for your business."
+        title="OpenClaw Installation Guide | Private Remote AI Employees" 
+        description="Step-by-step guide to installing OpenClaw. The ultimate private, local AI workforce for your business."
         schema={schema}
       />
       
@@ -43,7 +43,7 @@ const OpenClawInstall = () => {
         
         <h1 className="text-5xl font-bold mb-6">OpenClaw Installation Guide</h1>
         <p className="text-xl text-white/60 mb-12">
-          OpenClaw is designed to be easy to install and fully private. Choose the method that works best for your infrastructure.
+          OpenClaw is designed to be easy to install and fully private. Choose the method that works best for your infrastructure to start onboarding your remote AI employees.
         </p>
 
         <div className="space-y-12">
@@ -52,7 +52,7 @@ const OpenClawInstall = () => {
               <ShieldCheck className="text-brand-primary" /> 1. Security First
             </h2>
             <p className="text-white/70 mb-4">
-              Before installing, ensure your system is secure. OpenClaw runs entirely locally, meaning your data never leaves your network.
+              Before installing, ensure your system is secure. OpenClaw remote employees run entirely locally, meaning your data never leaves your network.
             </p>
             <ul className="space-y-4 text-white/70">
               <li className="flex gap-3">
@@ -88,7 +88,7 @@ const OpenClawInstall = () => {
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-3">
               <Terminal className="text-brand-primary" /> 3. Quick Install Script
             </h2>
-            <p className="text-white/60 mb-4">For most Linux systems, run this one-liner:</p>
+            <p className="text-white/60 mb-4">For most Linux systems, run this one-liner to start the hiring process:</p>
             <div className="bg-black/40 p-6 rounded-xl font-mono text-sm text-brand-primary border border-white/5">
               curl -fsSL https://install.openclaw.cc | bash
             </div>
@@ -96,10 +96,10 @@ const OpenClawInstall = () => {
         </div>
 
         <div className="mt-20 p-10 glass rounded-3xl border border-brand-primary/10 bg-brand-primary/5 text-center">
-          <h3 className="text-2xl font-bold mb-4">Need Expert Help?</h3>
-          <p className="text-white/50 mb-8">We provide full-service installation, GPU optimization, and security hardening.</p>
+          <h3 className="text-2xl font-bold mb-4">Need Expert Onboarding?</h3>
+          <p className="text-white/50 mb-8">We provide full-service hiring, GPU optimization, and security hardening for your AI workforce.</p>
           <Link to="/#pricing" className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold inline-block hover:scale-105 transition-transform">
-            Book Pro Installation
+            Book Pro Onboarding
           </Link>
         </div>
       </div>

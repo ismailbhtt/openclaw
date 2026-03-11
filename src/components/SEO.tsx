@@ -29,7 +29,19 @@ export const SEO: React.FC<SEOProps> = ({ title, description, canonical, schema 
         document.head.removeChild(script);
       };
     }
-  }, [title, description, schema]);
+
+    if (canonical) {
+      let link: HTMLLinkElement | null = document.querySelector('link[rel="canonical"]');
+      if (link) {
+        link.setAttribute('href', canonical);
+      } else {
+        link = document.createElement('link');
+        link.rel = 'canonical';
+        link.href = canonical;
+        document.head.appendChild(link);
+      }
+    }
+  }, [title, description, schema, canonical]);
 
   return null;
 };

@@ -8,7 +8,7 @@ const ClawbotInstall = () => {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "How to Install Clawbot",
-    "description": "Step-by-step guide to deploying Clawbot, the autonomous agent for OpenClaw.",
+    "description": "Step-by-step guide to deploying Clawbot, the autonomous engine for your private remote AI employees.",
     "step": [
       {
         "@type": "HowToStep",
@@ -31,8 +31,8 @@ const ClawbotInstall = () => {
   return (
     <div className="min-h-screen bg-brand-dark text-white pt-32 pb-20">
       <SEO 
-        title="Clawbot Installation Guide | Autonomous AI Agent" 
-        description="Learn how to install and configure Clawbot. The autonomous agent that powers your private AI workforce."
+        title="Clawbot Installation Guide | Private Remote AI Employees" 
+        description="Learn how to install and configure Clawbot. The autonomous engine that powers your private remote AI workforce."
         schema={schema}
       />
       
@@ -43,7 +43,7 @@ const ClawbotInstall = () => {
         
         <h1 className="text-5xl font-bold mb-6">Clawbot Installation Guide</h1>
         <p className="text-xl text-white/60 mb-12">
-          Clawbot is the autonomous engine of OpenClaw. Follow this guide to get your first agent up and running.
+          Clawbot is the autonomous engine of OpenClaw. Follow this guide to get your first remote AI employee up and running.
         </p>
 
         <div className="space-y-12">
@@ -58,7 +58,7 @@ const ClawbotInstall = () => {
               </li>
               <li className="flex gap-3">
                 <CheckCircle2 className="w-5 h-5 text-brand-primary shrink-0" />
-                <span>Ollama running with Llama 3 or Mistral</span>
+                <span>Ollama running with Llama 3.1 or Mistral</span>
               </li>
               <li className="flex gap-3">
                 <CheckCircle2 className="w-5 h-5 text-brand-primary shrink-0" />
@@ -70,7 +70,7 @@ const ClawbotInstall = () => {
           <section className="glass p-8 rounded-2xl border border-white/5">
             <h2 className="text-2xl font-bold mb-6">2. Activation</h2>
             <p className="text-white/60 mb-6">
-              Navigate to your OpenClaw Dashboard, go to <strong>Settings &gt; Agents</strong>, and toggle the <strong>Enable Clawbot</strong> switch.
+              Navigate to your OpenClaw Dashboard, go to <strong>Settings &gt; Agents</strong>, and toggle the <strong>Enable Clawbot</strong> switch to start the onboarding.
             </p>
             <div className="bg-black/40 p-6 rounded-xl font-mono text-sm text-brand-primary border border-white/5">
               <p># Check agent status via CLI</p>
@@ -80,15 +80,15 @@ const ClawbotInstall = () => {
 
           <section className="glass p-8 rounded-2xl border border-white/5">
             <h2 className="text-2xl font-bold mb-6">3. Configuration</h2>
-            <p className="text-white/60 mb-4">Define the tasks Clawbot is allowed to perform:</p>
+            <p className="text-white/60 mb-4">Define the tasks your remote AI employee is allowed to perform:</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-4 bg-white/5 rounded-xl border border-white/10">
                 <h4 className="font-bold mb-2">Web Search</h4>
-                <p className="text-sm text-white/40">Allows Clawbot to browse the live web for real-time data.</p>
+                <p className="text-sm text-white/40">Allows your agent to browse the live web for real-time data.</p>
               </div>
               <div className="p-4 bg-white/5 rounded-xl border border-white/10">
                 <h4 className="font-bold mb-2">File Access</h4>
-                <p className="text-sm text-white/40">Allows Clawbot to read and analyze local documents.</p>
+                <p className="text-sm text-white/40">Allows your agent to read and analyze local documents.</p>
               </div>
             </div>
           </section>
@@ -96,9 +96,9 @@ const ClawbotInstall = () => {
 
         <div className="mt-20 p-10 glass rounded-3xl border border-brand-primary/10 bg-brand-primary/5 text-center">
           <h3 className="text-2xl font-bold mb-4">Want a Custom Agent?</h3>
-          <p className="text-white/50 mb-8">We build custom Clawbot workflows tailored to your specific business needs.</p>
+          <p className="text-white/50 mb-8">We build custom Clawbot workflows tailored to your specific business roles and needs.</p>
           <Link to="/#pricing" className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold inline-block hover:scale-105 transition-transform">
-            Get Started
+            Start Hiring Process
           </Link>
         </div>
       </div>

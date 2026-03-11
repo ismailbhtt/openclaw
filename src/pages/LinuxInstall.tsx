@@ -8,7 +8,7 @@ const LinuxInstall = () => {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "How to Install OpenClaw on Linux (Ubuntu/Debian)",
-    "description": "Complete guide to setting up OpenClaw on Linux servers for a high-performance private AI workforce.",
+    "description": "Complete guide to setting up OpenClaw on Linux servers for a high-performance private remote AI workforce.",
     "step": [
       {
         "@type": "HowToStep",
@@ -31,8 +31,8 @@ const LinuxInstall = () => {
   return (
     <div className="min-h-screen bg-brand-dark text-white pt-32 pb-20">
       <SEO 
-        title="OpenClaw Linux Install Guide | Ubuntu & Debian Setup" 
-        description="Step-by-step Linux installation guide for OpenClaw. Optimize your Ubuntu or Debian server for local AI automation and private operators."
+        title="OpenClaw Linux Install Guide | Private Remote AI Employees" 
+        description="Step-by-step Linux installation guide for OpenClaw. Optimize your Ubuntu or Debian server for local AI automation and private remote employees."
         schema={schema}
       />
       
@@ -43,7 +43,7 @@ const LinuxInstall = () => {
         
         <h1 className="text-5xl font-bold mb-6">Linux Installation Guide</h1>
         <p className="text-xl text-white/60 mb-12">
-          Maximize performance by running OpenClaw on a dedicated Linux server. This guide covers Ubuntu 22.04+ and Debian-based systems.
+          Maximize performance by running your OpenClaw remote AI employees on a dedicated Linux server. This guide covers Ubuntu 22.04+ and Debian-based systems.
         </p>
 
         <div className="space-y-12">
@@ -59,7 +59,7 @@ const LinuxInstall = () => {
 
           <section className="glass p-8 rounded-2xl border border-white/5">
             <h2 className="text-2xl font-bold mb-6">2. Node.js Environment</h2>
-            <p className="text-white/60 mb-4">We recommend using NVM for managing Node.js versions:</p>
+            <p className="text-white/60 mb-4">We recommend using NVM for managing Node.js versions for your agents:</p>
             <div className="bg-black/40 p-6 rounded-xl font-mono text-sm text-brand-primary border border-white/5">
               <p>curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash</p>
               <p>nvm install 20</p>
@@ -77,10 +77,10 @@ const LinuxInstall = () => {
         </div>
 
         <div className="mt-20 p-10 glass rounded-3xl border border-brand-primary/10 bg-brand-primary/5 text-center">
-          <h3 className="text-2xl font-bold mb-4">Deploying to a VPS?</h3>
-          <p className="text-white/50 mb-8">We offer remote deployment services for AWS, GCP, and DigitalOcean instances.</p>
+          <h3 className="text-2xl font-bold mb-4">Deploying to a Private Cloud?</h3>
+          <p className="text-white/50 mb-8">We offer remote onboarding services for AWS, GCP, and DigitalOcean instances to host your AI workforce.</p>
           <Link to="/#pricing" className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold inline-block hover:scale-105 transition-transform">
-            Get Remote Setup
+            Get Remote Onboarding
           </Link>
         </div>
       </div>

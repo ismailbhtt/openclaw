@@ -8,7 +8,7 @@ const DockerInstall = () => {
     "@context": "https://schema.org",
     "@type": "HowTo",
     "name": "How to Install OpenClaw with Docker",
-    "description": "Step-by-step guide to deploying OpenClaw AI assistant using Docker for a private, containerized AI workforce.",
+    "description": "Step-by-step guide to deploying OpenClaw remote AI employees using Docker for a private, containerized AI workforce.",
     "step": [
       {
         "@type": "HowToStep",
@@ -31,8 +31,8 @@ const DockerInstall = () => {
   return (
     <div className="min-h-screen bg-brand-dark text-white pt-32 pb-20">
       <SEO 
-        title="OpenClaw Docker Install Guide | Private AI Deployment" 
-        description="Learn how to install OpenClaw using Docker. The fastest way to deploy a private, local AI assistant with full container isolation."
+        title="OpenClaw Docker Install Guide | Private Remote AI Employees" 
+        description="Learn how to install OpenClaw using Docker. The fastest way to deploy a private, local AI workforce with full container isolation."
         schema={schema}
       />
       
@@ -43,7 +43,7 @@ const DockerInstall = () => {
         
         <h1 className="text-5xl font-bold mb-6">Docker Installation Guide</h1>
         <p className="text-xl text-white/60 mb-12">
-          Deploy OpenClaw in minutes using our official Docker configuration. Ideal for servers and production environments.
+          Deploy your OpenClaw remote AI employees in minutes using our official Docker configuration. Ideal for servers and production environments.
         </p>
 
         <div className="space-y-12">
@@ -62,7 +62,7 @@ const DockerInstall = () => {
               </li>
               <li className="flex gap-3">
                 <CheckCircle2 className="w-5 h-5 text-brand-primary shrink-0" />
-                <span>At least 16GB RAM (32GB+ recommended for Llama 3)</span>
+                <span>At least 16GB RAM (32GB+ recommended for Llama 3.1)</span>
               </li>
             </ul>
           </section>
@@ -79,7 +79,7 @@ const DockerInstall = () => {
 
           <section className="glass p-8 rounded-2xl border border-white/5">
             <h2 className="text-2xl font-bold mb-6">3. Verification</h2>
-            <p className="text-white/60 mb-4">Once the containers are running, access the dashboard at:</p>
+            <p className="text-white/60 mb-4">Once the containers are running, access your remote employee dashboard at:</p>
             <div className="bg-white/5 p-4 rounded-lg font-mono text-brand-primary inline-block">
               http://localhost:3000
             </div>
@@ -88,9 +88,9 @@ const DockerInstall = () => {
 
         <div className="mt-20 p-10 glass rounded-3xl border border-brand-primary/10 bg-brand-primary/5 text-center">
           <h3 className="text-2xl font-bold mb-4">Need a Professional Setup?</h3>
-          <p className="text-white/50 mb-8">We handle the complex Docker networking, GPU passthrough, and security hardening for you.</p>
+          <p className="text-white/50 mb-8">We handle the complex Docker networking, GPU passthrough, and security hardening for your AI workforce.</p>
           <Link to="/#pricing" className="bg-brand-primary text-black px-8 py-4 rounded-xl font-bold inline-block hover:scale-105 transition-transform">
-            Book Pro Installation
+            Book Pro Onboarding
           </Link>
         </div>
       </div>

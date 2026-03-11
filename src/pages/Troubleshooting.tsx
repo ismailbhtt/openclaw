@@ -30,8 +30,8 @@ const Troubleshooting = () => {
   return (
     <div className="min-h-screen bg-brand-dark text-white pt-32 pb-20">
       <SEO 
-        title="Fix OpenClaw Install Errors | Troubleshooting Guide" 
-        description="Struggling with your OpenClaw installation? Our comprehensive troubleshooting guide covers common errors, GPU issues, and dependency fixes."
+        title="Fix OpenClaw Install Errors | Private Remote AI Employees" 
+        description="Struggling with your OpenClaw installation? Our comprehensive troubleshooting guide covers common errors, GPU issues, and dependency fixes for your AI workforce."
         schema={schema}
       />
       
@@ -42,7 +42,7 @@ const Troubleshooting = () => {
         
         <h1 className="text-5xl font-bold mb-6">Troubleshooting Installation</h1>
         <p className="text-xl text-white/60 mb-12">
-          Don't let technical hurdles stop your AI journey. Here are the most common fixes for OpenClaw installation issues.
+          Don't let technical hurdles stop your AI journey. Here are the most common fixes for OpenClaw installation issues so you can get your remote AI employees online.
         </p>
 
         <div className="space-y-8">
@@ -56,13 +56,13 @@ const Troubleshooting = () => {
             {
               issue: "GPU / CUDA Not Detected",
               cause: "Incorrect NVIDIA drivers or missing CUDA toolkit.",
-              fix: "Verify drivers with 'nvidia-smi' and ensure CUDA 12.x is installed for Llama 3 compatibility.",
+              fix: "Verify drivers with 'nvidia-smi' and ensure CUDA 12.x is installed for Llama 3.1 compatibility.",
               icon: AlertTriangle
             },
             {
-              issue: "Browser Operator Connection Failed",
+              issue: "Remote Agent Connection Failed",
               cause: "Firewall blocking Playwright or missing browser binaries.",
-              fix: "Run 'npx playwright install' to ensure all required browser engines are present.",
+              fix: "Run 'npx playwright install' to ensure all required browser engines are present for your remote agents.",
               icon: AlertTriangle
             }
           ].map((item, i) => (
@@ -90,7 +90,7 @@ const Troubleshooting = () => {
             </div>
             <div>
               <h3 className="text-2xl font-bold mb-2">Still Stuck?</h3>
-              <p className="text-white/50 mb-6">Our engineers specialize in fixing complex environment issues. We can jump on a call and have you running in under an hour.</p>
+              <p className="text-white/50 mb-6">Our engineers specialize in fixing complex environment issues. We can jump on a call and have your remote AI employees running in under an hour.</p>
               <Link to="/#pricing" className="bg-brand-primary text-black px-6 py-3 rounded-xl font-bold hover:scale-105 transition-transform inline-block">
                 Get Expert Help
               </Link>

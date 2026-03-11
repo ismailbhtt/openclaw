@@ -14,6 +14,12 @@ import OpenClawInstall from './pages/OpenClawInstall';
 import WhatIsOpenClaw from './pages/WhatIsOpenClaw';
 import Blog from './pages/Blog';
 import { PrivacyPolicy, TermsOfService, Contact, About } from './pages/StaticPages';
+import SDRPage from './pages/agents/SDRPage';
+import TruckDispatcherPage from './pages/agents/TruckDispatcherPage';
+import InboxManagerPage from './pages/agents/InboxManagerPage';
+import LeadNurturePage from './pages/agents/LeadNurturePage';
+import SupportAgentPage from './pages/agents/SupportAgentPage';
+import CustomAgentPage from './pages/agents/CustomAgentPage';
 
 export default function App() {
   return (
@@ -22,6 +28,12 @@ export default function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<Blog />} />
+        <Route path="/agents/autonomous-sdr" element={<SDRPage />} />
+        <Route path="/agents/truck-dispatcher" element={<TruckDispatcherPage />} />
+        <Route path="/agents/inbox-manager" element={<InboxManagerPage />} />
+        <Route path="/agents/lead-nurture" element={<LeadNurturePage />} />
+        <Route path="/agents/customer-support" element={<SupportAgentPage />} />
+        <Route path="/agents/custom-agent" element={<CustomAgentPage />} />
         <Route path="/install/docker" element={<DockerInstall />} />
         <Route path="/install/troubleshooting" element={<Troubleshooting />} />
         <Route path="/install/linux" element={<LinuxInstall />} />

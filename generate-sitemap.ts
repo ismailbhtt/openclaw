@@ -9,6 +9,12 @@ const __dirname = path.dirname(__filename);
 const baseUrl = 'https://www.openclawinstall.cc';
 const pages = [
   "/",
+  "/agents/autonomous-sdr",
+  "/agents/truck-dispatcher",
+  "/agents/inbox-manager",
+  "/agents/lead-nurture",
+  "/agents/customer-support",
+  "/agents/custom-agent",
   "/install/docker",
   "/install/troubleshooting",
   "/install/linux",

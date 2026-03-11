@@ -1,8 +1,11 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { Calendar, User, ArrowLeft, ChevronRight, BookOpen, Clock, Share2 } from 'lucide-react';
+import { Calendar, User, ArrowLeft, BookOpen, Clock, Share2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
 import { blogPosts, BlogPost } from '../data/blogPosts.ts';
 
 const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
@@ -17,7 +20,7 @@ const BlogCard = ({ post, index }: { post: BlogPost; index: number }) => (
       <div className="relative aspect-[16/10] overflow-hidden rounded-3xl bg-zinc-900 border border-white/5">
         <img
           src={post.image}
-          alt={post.title}
+          alt={post.altText || post.title}
           className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
           referrerPolicy="no-referrer"
         />
@@ -173,7 +176,7 @@ const BlogPostDetail = ({ post }: { post: BlogPost }) => (
         <div className="relative aspect-[21/9] rounded-[2rem] overflow-hidden border border-white/5 shadow-2xl">
           <img
             src={post.image}
-            alt={post.title}
+            alt={post.altText || post.title}
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -182,7 +185,50 @@ const BlogPostDetail = ({ post }: { post: BlogPost }) => (
 
         <div className="prose prose-invert prose-brand max-w-none">
           <div className="markdown-body text-white/70 leading-relaxed font-light text-lg">
-            <ReactMarkdown>{post.content}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw, rehypeSlug]}
+              components={{
+                blockquote: ({ node, ...props }) => {
+                  const content = props.children?.toString() || '';
+                  if (content.includes('Key Takeaways')) {
+                    return (
+                      <div className="my-12 p-8 rounded-3xl bg-brand-primary/5 border border-brand-primary/20 relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-brand-primary/10 blur-3xl rounded-full -translate-y-1/2 translate-x-1/2 group-hover:bg-brand-primary/20 transition-colors" />
+                        <blockquote {...props} className="border-none p-0 m-0 text-white/90 italic font-serif text-xl leading-relaxed" />
+                      </div>
+                    );
+                  }
+                  return <blockquote {...props} className="border-l-4 border-brand-primary/30 pl-6 my-8 italic text-white/50" />;
+                },
+                h2: ({ node, ...props }) => (
+                  <h2 {...props} className="text-3xl md:text-4xl font-bold text-white mt-16 mb-8 tracking-tight scroll-mt-24" />
+                ),
+                h3: ({ node, ...props }) => (
+                  <h3 {...props} className="text-2xl font-bold text-white mt-12 mb-6 tracking-tight scroll-mt-24" />
+                ),
+                a: ({ node, ...props }) => {
+                  const isInternal = props.href?.startsWith('/');
+                  if (isInternal) {
+                    return <Link to={props.href!} className="text-brand-primary hover:underline transition-all underline-offset-4" {...(props as any)}>{props.children}</Link>;
+                  }
+                  return <a {...props} className="text-brand-primary hover:underline transition-all underline-offset-4" target="_blank" rel="noopener noreferrer" />;
+                },
+                table: ({ node, ...props }) => (
+                  <div className="overflow-x-auto my-12 rounded-2xl border border-white/5">
+                    <table {...props} className="w-full text-left border-collapse" />
+                  </div>
+                ),
+                th: ({ node, ...props }) => (
+                  <th {...props} className="p-4 bg-white/5 text-brand-primary font-mono text-[10px] uppercase tracking-widest border-b border-white/10" />
+                ),
+                td: ({ node, ...props }) => (
+                  <td {...props} className="p-4 border-b border-white/5 text-sm text-white/60" />
+                ),
+              }}
+            >
+              {post.content}
+            </ReactMarkdown>
           </div>
         </div>
       </motion.div>

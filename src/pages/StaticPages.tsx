@@ -50,22 +50,22 @@ By using our services, you agree to the following terms:
 export const Contact = () => (
   <SimplePage 
     title="Contact Us" 
-    content={`Have questions? We're here to help.
+    content={`Have questions about hiring your first remote AI employee? We're here to help.
 
 Email: support@openclawinstall.cc
 Hours: Monday - Friday, 9am - 5pm EST
 
-For project inquiries, please use the contact form on our homepage for a faster response.`} 
+For hiring inquiries and custom agent blueprints, please use the contact form on our homepage for a faster response.`} 
   />
 );
 
 export const About = () => (
   <SimplePage 
     title="About OpenClaw Install" 
-    content={`We are a team of AI infrastructure experts dedicated to bringing the power of local, private AI to businesses of all sizes.
+    content={`We are a team of AI infrastructure experts dedicated to bringing the power of local, private AI workforces to businesses of all sizes.
 
-Our mission is to help companies reclaim their data sovereignty by moving away from cloud-based AI subscriptions and onto their own private hardware.
+Our mission is to help companies hire remote AI employees that run entirely on their own private hardware, ensuring 100% data sovereignty and zero recurring salary costs.
 
-With years of experience in GPU optimization, Linux server hardening, and LLM deployment, we ensure your private AI workforce is fast, secure, and reliable.`} 
+With years of experience in GPU optimization, Linux server hardening, and autonomous agent deployment, we ensure your private remote workforce is fast, secure, and ready to handle your most repetitive business tasks.`} 
   />
 );
