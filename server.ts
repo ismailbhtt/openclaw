@@ -164,7 +164,7 @@ Sitemap: ${baseUrl}/sitemap.xml`.trim();
        .send(robots);
   });
 
-  // Vite middleware for development
+  // SPA Fallback for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({
       server: { middlewareMode: true },
@@ -172,7 +172,6 @@ Sitemap: ${baseUrl}/sitemap.xml`.trim();
     });
     app.use(vite.middlewares);
     
-    // SPA Fallback for development
     app.use("*", async (req, res, next) => {
       const url = req.originalUrl;
       if (url.startsWith('/api') || url.includes('.')) {
@@ -193,8 +192,16 @@ Sitemap: ${baseUrl}/sitemap.xml`.trim();
     // Serve static files from dist
     app.use(express.static(distPath, {
       maxAge: '1d',
-      etag: true
+      etag: true,
+      index: false // Don't serve index.html automatically, we'll handle it below
     }));
+
+    // Explicitly handle common routes to avoid any ambiguity
+    const commonRoutes = ['/blog', '/agents', '/install', '/about', '/contact', '/privacy-policy', '/terms-of-service', '/what-is-open-claw'];
+    
+    app.get(commonRoutes.map(r => `${r}*`), (req, res) => {
+      res.sendFile(path.join(distPath, "index.html"));
+    });
 
     // SPA Fallback for production
     app.get("*", (req, res) => {
@@ -203,12 +210,15 @@ Sitemap: ${baseUrl}/sitemap.xml`.trim();
         return res.status(404).json({ error: "API route not found" });
       }
 
+      // If it looks like a file (has an extension), and we reached here, it's a 404
+      if (req.url.includes('.') && !req.url.endsWith('.html')) {
+        return res.status(404).send('Not found');
+      }
+
       const indexPath = path.join(distPath, "index.html");
       if (fs.existsSync(indexPath)) {
         res.sendFile(indexPath);
       } else {
-        // Fallback to root index.html if dist doesn't exist (e.g. during build)
-        console.warn("dist/index.html not found, falling back to root index.html");
         res.sendFile(path.join(__dirname, "index.html"));
       }
     });

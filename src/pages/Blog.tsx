@@ -1,6 +1,7 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { Helmet } from 'react-helmet-async';
 import { Calendar, User, ArrowLeft, BookOpen, Clock, Share2 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -69,6 +70,13 @@ const ArrowRight = ({ className }: { className?: string }) => (
 
 const BlogList = () => (
   <div className="min-h-screen bg-brand-dark text-white selection:bg-brand-primary selection:text-black">
+    <Helmet>
+      <title>Intelligence Journal | OpenClaw Install</title>
+      <meta name="description" content="Deep dives into local AI deployment, data sovereignty, and the future of autonomous workflows." />
+      <meta property="og:title" content="Intelligence Journal | OpenClaw Install" />
+      <meta property="og:description" content="Deep dives into local AI deployment, data sovereignty, and the future of autonomous workflows." />
+      <meta property="og:type" content="website" />
+    </Helmet>
     {/* Background elements */}
     <div className="fixed inset-0 overflow-hidden pointer-events-none opacity-20">
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-brand-primary/10 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/2" />
@@ -117,6 +125,16 @@ const BlogList = () => (
 
 const BlogPostDetail = ({ post }: { post: BlogPost }) => (
   <div className="min-h-screen bg-brand-dark text-white selection:bg-brand-primary selection:text-black">
+    <Helmet>
+      <title>{post.title} | OpenClaw Install</title>
+      <meta name="description" content={post.excerpt} />
+      <meta property="og:title" content={post.title} />
+      <meta property="og:description" content={post.excerpt} />
+      <meta property="og:image" content={post.image} />
+      <meta property="og:type" content="article" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <link rel="canonical" href={`https://www.openclawinstall.cc/blog/${post.slug}`} />
+    </Helmet>
     {/* Progress bar */}
     <motion.div 
       className="fixed top-0 left-0 right-0 h-1 bg-brand-primary z-[60] origin-left"

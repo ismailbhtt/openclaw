@@ -5,6 +5,7 @@
 
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import LandingPage from './LandingPage';
 import DockerInstall from './pages/DockerInstall';
 import Troubleshooting from './pages/Troubleshooting';
@@ -23,28 +24,30 @@ import CustomAgentPage from './pages/agents/CustomAgentPage';
 
 export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:slug" element={<Blog />} />
-        <Route path="/agents/autonomous-sdr" element={<SDRPage />} />
-        <Route path="/agents/truck-dispatcher" element={<TruckDispatcherPage />} />
-        <Route path="/agents/inbox-manager" element={<InboxManagerPage />} />
-        <Route path="/agents/lead-nurture" element={<LeadNurturePage />} />
-        <Route path="/agents/customer-support" element={<SupportAgentPage />} />
-        <Route path="/agents/custom-agent" element={<CustomAgentPage />} />
-        <Route path="/install/docker" element={<DockerInstall />} />
-        <Route path="/install/troubleshooting" element={<Troubleshooting />} />
-        <Route path="/install/linux" element={<LinuxInstall />} />
-        <Route path="/install/clawbot" element={<ClawbotInstall />} />
-        <Route path="/install/open-claw" element={<OpenClawInstall />} />
-        <Route path="/what-is-open-claw" element={<WhatIsOpenClaw />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<Blog />} />
+          <Route path="/agents/autonomous-sdr" element={<SDRPage />} />
+          <Route path="/agents/truck-dispatcher" element={<TruckDispatcherPage />} />
+          <Route path="/agents/inbox-manager" element={<InboxManagerPage />} />
+          <Route path="/agents/lead-nurture" element={<LeadNurturePage />} />
+          <Route path="/agents/customer-support" element={<SupportAgentPage />} />
+          <Route path="/agents/custom-agent" element={<CustomAgentPage />} />
+          <Route path="/install/docker" element={<DockerInstall />} />
+          <Route path="/install/troubleshooting" element={<Troubleshooting />} />
+          <Route path="/install/linux" element={<LinuxInstall />} />
+          <Route path="/install/clawbot" element={<ClawbotInstall />} />
+          <Route path="/install/open-claw" element={<OpenClawInstall />} />
+          <Route path="/what-is-open-claw" element={<WhatIsOpenClaw />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
+    </HelmetProvider>
   );
 }
