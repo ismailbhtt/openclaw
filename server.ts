@@ -10,20 +10,25 @@ import { blogPosts } from "./src/data/blogPosts.ts";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const db = new Database("leads.db");
-db.exec(`
-  CREATE TABLE IF NOT EXISTS leads (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    email TEXT,
-    company TEXT,
-    plan TEXT,
-    message TEXT,
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-  )
-`);
+let db: any = null;
+try {
+  db = new Database("leads.db");
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS leads (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      email TEXT,
+      company TEXT,
+      plan TEXT,
+      message TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+} catch (e) {
+  console.warn("Could not initialize local SQLite database. This is expected on some platforms like Vercel.");
+}
 
-async function startServer() {
+export async function createServer() {
   const app = express();
   const PORT = 3000;
 
@@ -59,11 +64,12 @@ async function startServer() {
     console.log("Form submission attempt:", { name, email, company, plan });
 
     try {
-      // 1. Save to local SQLite database as backup
-      const stmt = db.prepare("INSERT INTO leads (name, email, company, plan, message) VALUES (?, ?, ?, ?, ?)");
-      stmt.run(name, email, company, plan || 'General Inquiry', message || '');
-      
-      console.log("Lead saved to local SQLite database.");
+      // 1. Save to local SQLite database as backup (if available)
+      if (db) {
+        const stmt = db.prepare("INSERT INTO leads (name, email, company, plan, message) VALUES (?, ?, ?, ?, ?)");
+        stmt.run(name, email, company, plan || 'General Inquiry', message || '');
+        console.log("Lead saved to local SQLite database.");
+      }
       
       // 2. Forward to Google Apps Script (Non-blocking)
       const gasUrl = 'https://script.google.com/macros/s/AKfycbzaAeAa2qxJzMNT7IJwU9m_jhn24119gO0LRV6MjrFVQb73JPyDBzhDq1lrt8leI5NE/exec';
@@ -101,6 +107,7 @@ async function startServer() {
 
   // API Route to get leads (for "Excel" export simulation)
   app.get("/api/leads", (req, res) => {
+    if (!db) return res.json([]);
     // In a real app, you'd protect this with an admin password
     const leads = db.prepare("SELECT * FROM leads ORDER BY created_at DESC").all();
     res.json(leads);
@@ -224,9 +231,14 @@ Sitemap: ${baseUrl}/sitemap.xml`.trim();
     });
   }
 
-  app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-  });
+  return { app, PORT };
 }
 
-startServer();
+// Start server if this file is run directly
+if (import.meta.url === `file://${process.argv[1]}` || process.env.NODE_ENV === "production") {
+  createServer().then(({ app, PORT }) => {
+    app.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server running on http://localhost:${PORT}`);
+    });
+  });
+}
