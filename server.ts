@@ -28,10 +28,16 @@ async function startServer() {
 
   app.use(express.json());
 
-  // Redirect http to https in production
+  // Redirect http to https and non-www to www in production
   app.use((req, res, next) => {
-    if (process.env.NODE_ENV === "production" && req.headers["x-forwarded-proto"] !== "https") {
-      return res.redirect(`https://${req.get("host")}${req.url}`);
+    const host = req.get("host") || "";
+    const isProduction = process.env.NODE_ENV === "production";
+    const isNotHttps = req.headers["x-forwarded-proto"] !== "https";
+    const isNonWww = !host.startsWith("www.");
+
+    if (isProduction && (isNotHttps || isNonWww)) {
+      const newHost = isNonWww ? `www.${host}` : host;
+      return res.redirect(301, `https://${newHost}${req.url}`);
     }
     next();
   });
@@ -98,6 +104,12 @@ async function startServer() {
     const baseUrl = `${protocol}://${host}`.replace(/\/$/, "");
     const pages = [
       "/",
+      "/agents/autonomous-sdr",
+      "/agents/truck-dispatcher",
+      "/agents/inbox-manager",
+      "/agents/lead-nurture",
+      "/agents/customer-support",
+      "/agents/custom-agent",
       "/install/docker",
       "/install/troubleshooting",
       "/install/linux",
@@ -129,7 +141,6 @@ ${pages
 
     res.status(200)
        .header("Content-Type", "text/xml; charset=utf-8")
-       .header("X-Robots-Tag", "noindex") // Sitemaps themselves shouldn't be indexed as pages
        .header("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate")
        .send(sitemap);
   });
