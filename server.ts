@@ -29,17 +29,24 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Request logging for debugging
+  app.use((req, res, next) => {
+    console.log(`${new Date().toISOString()} - ${req.method} ${req.url} - Host: ${req.get("host")}`);
+    next();
+  });
+
   // Redirect http to https and non-www to www in production
   app.use((req, res, next) => {
     const host = req.get("host") || "";
-    const isProduction = process.env.NODE_ENV === "production";
     const xForwardedProto = req.headers["x-forwarded-proto"];
+    const isProduction = process.env.NODE_ENV === "production" || !host.includes("localhost");
+    
     const isNotHttps = xForwardedProto && xForwardedProto !== "https";
     const isNonWww = !host.startsWith("www.") && !host.includes("localhost") && !host.includes(".run.app");
 
     if (isProduction && (isNotHttps || isNonWww)) {
       const newHost = isNonWww ? `www.${host}` : host;
-      const protocol = isNotHttps ? "https" : (xForwardedProto || "http");
+      console.log(`Redirecting to: https://${newHost}${req.url}`);
       return res.redirect(301, `https://${newHost}${req.url}`);
     }
     next();
@@ -182,13 +189,26 @@ Sitemap: ${baseUrl}/sitemap.xml`.trim();
     });
   } else {
     const distPath = path.join(__dirname, "dist");
-    app.use(express.static(distPath));
+    
+    // Serve static files from dist
+    app.use(express.static(distPath, {
+      maxAge: '1d',
+      etag: true
+    }));
+
+    // SPA Fallback for production
     app.get("*", (req, res) => {
+      // Skip API routes
+      if (req.url.startsWith('/api')) {
+        return res.status(404).json({ error: "API route not found" });
+      }
+
       const indexPath = path.join(distPath, "index.html");
       if (fs.existsSync(indexPath)) {
         res.sendFile(indexPath);
       } else {
         // Fallback to root index.html if dist doesn't exist (e.g. during build)
+        console.warn("dist/index.html not found, falling back to root index.html");
         res.sendFile(path.join(__dirname, "index.html"));
       }
     });
